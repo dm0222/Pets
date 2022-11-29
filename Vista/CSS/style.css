@@ -161,13 +161,14 @@ video {
 input {
     position: relative;
     margin-top: 3%;
+    padding-left: 20px;
     left: 50%;
     transform: translateX(-50%);
     height: 30px;
     width: 70%;
     border-radius: 10px;
     border: solid 1px #F0F0F0;
-}
+} 
 
 input::placeholder {
     padding: 10px;
@@ -175,6 +176,8 @@ input::placeholder {
 
 .submit01 {
     background: #166FE5;
+    width: 74%;
+    height: 35px;
     color: #fff;
     cursor: pointer;
     margin-top: 3%;
@@ -212,6 +215,8 @@ input::placeholder {
 .submit02 {
     position: relative;
     top: 15%;
+    width: 74%;
+    height: 35px;
     background: #36A420;
     height: 40px;
     color: #fff;
@@ -273,3 +278,8 @@ input::placeholder {
     cursor: pointer;
     margin-top: 3%;
 } 
+
+
+
+
+
