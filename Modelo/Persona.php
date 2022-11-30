@@ -1,19 +1,32 @@
 <?php
-    
-    class Persona{
-        private $Documento;
-        private $Primer_Nombre;
-        private $Segundo_Nombre;
-        private $Primer_Apellido;
-        private $Segundo_Apellido;
-        private $Direccion;
-        private $Telefono;
-        private $Celular;
-        private $Email;
 
-        public function __construct($Documento){
-            $this->Documento = $Documento;
-        }
+class Persona
+{
+    protected $Documento;
+    protected $Primer_Nombre;
+    protected $Segundo_Nombre;
+    protected $Primer_Apellido;
+    protected $Segundo_Apellido;
+    protected $Direccion;
+    protected $Telefono;
+    protected $Celular;
+    protected $Email;
+
+    public function AgregarPersona($Documento,$Primer_Nombre,$Segundo_Nombre,$Primer_Apellido,$Segundo_Apellido,$Direccion,$Telefono,$Celular,$Email){
+
     }
-    
+
+    public function EditarPersona($Documento,$Primer_Nombre,$Segundo_Nombre,$Primer_Apellido,$Segundo_Apellido,$Direccion,$Telefono,$Celular,$Email){
+
+    }
+
+    public function EliminarPersona($Documento){
+
+    }
+
+    public function ListarPersona($Documento){
+
+    }
+}
+
 ?>
