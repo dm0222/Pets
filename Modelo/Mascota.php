@@ -9,7 +9,7 @@
         private $Raza;
         private $Color;
 
-        public $Obj_Propietario = new Propietario(new Persona($this->Documento));
+        public $Obj_Propietario = new Propietario($this->Documento);
 
         public function __construct($Codigo,$Nombre,$Edad,$Genero,$Especie,$Raza,$Color){
             $this->Codigo = $Codigo;

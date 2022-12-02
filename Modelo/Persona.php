@@ -12,6 +12,10 @@ class Persona
     protected $Celular;
     protected $Email;
 
+    public function __construct($Documento){
+        $Documento = $this->Documento;
+    }
+
     public function AgregarPersona($Documento,$Primer_Nombre,$Segundo_Nombre,$Primer_Apellido,$Segundo_Apellido,$Direccion,$Telefono,$Celular,$Email){
 
     }

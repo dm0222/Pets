@@ -1,7 +1,7 @@
 <?php
     require_once '../Modelo/Medico.php';
 
-    $obj_Medico = new Medico;
+    $obj_Medico = new Medico($Documento);
 
     if(isset($_POST['agregar'])){
         $obj_Medico->AgregarPersona($_POST['Documento'],
@@ -13,7 +13,7 @@
                                     $_POST['Telefono'],
                                     $_POST['Celular'],
                                     $_POST['Email']);
-                                    exit;
+        exit;
     }
 
     if(isset($_POST['editar'])){
