@@ -1,7 +1,5 @@
 <?php
-session_start();
-include "$_SERVER[DOCUMENT_ROOT]/Pets/Conexion/Conexion.php";
-
+    require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Conexion/Conexion.php");
     class Usuaraio {
         protected $codigo; 
         protected $usuario;
@@ -10,18 +8,54 @@ include "$_SERVER[DOCUMENT_ROOT]/Pets/Conexion/Conexion.php";
         protected $estado;
         protected $Documento;
 
+        // Validacion del usuario//
+        public function ValidarRegistro($Documento,$usuario,$contrasena){
+            $conexion = new Conexion;
+            $conectar = $conexion->conexion();
+            $validar = "SELECT * FROM cuenta WHERE FK_CodUsuario = '$Documento'";
+            $resultado = mysqli_query($conectar, $validar);
+            if($row = mysqli_fetch_array($resultado)){
+                echo "
+                    <script type='text/javascript'>
+                        Swal.fire({
+                            icon:'error',
+                            title:'ERROR!',
+                            text:'El usuario ya tiene una cuenta registrada'
+                        }).then((result) => {
+                            if(result.isConfirmed){
+                                window.location = '../index.php';
+                            }
+                        });   
+                    </script>
+                ";
+            }
+            else{
+                $this->RegistrarUsuario($Documento,$usuario,$contrasena);
+            }
+        }
+
+        //Registro del Usuario //
         public function RegistrarUsuario($Documento,$usuario,$contrasena){
             $conexion=new Conexion;
             $conecta = $conexion->conexion();
             $insertar="INSERT INTO cuenta VALUES (NULL,'$Documento','$usuario','$contrasena',12, 11)";
             $resultado=mysqli_query($conecta,$insertar);
-            echo $insertar;
+            echo "
+                <script type='text/javascript'>
+                    Swal.fire({
+                        icon:'success',
+                        title:'Bienvenido',
+                        text:'$usuario a sido registrado correctamente'
+                    }).then((result) => {
+                        if(result.isConfirmed){
+                            window.location = '../index.php';
+                        }
+                    });   
+                </script>
+            ";
         }
 
-        public function ValidarUsuario($Documento){
-            
-        }
-
+        //Validacion del Inicio de Sesion// 
         public function ValidarSession($usuario,$contrasena){
             $conexion = new Conexion;
             $conectar = $conexion->conexion();
@@ -69,13 +103,14 @@ include "$_SERVER[DOCUMENT_ROOT]/Pets/Conexion/Conexion.php";
                     <script type='text/javascript'>
                         Swal.fire({
                             icon:'error',
-                            title:'ERROR!!,
+                            title:'ERROR!!',
                             text:'El usuario $usuario no existe'
                         }).then((result) => {
                             if(result.isConfirmed){
                                 window.location = '../index.php';
                             }
                         });
+                    </script>
                 ";
             }
         }
