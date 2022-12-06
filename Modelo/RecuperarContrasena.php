@@ -12,7 +12,7 @@ class RecuperarContrasena{
         require_once "EmailRecuperacion.php";
         if($enviado == true){
         $conexion = new Conexion();
-        $insertar = "INSERT INTO reset_contrasena (codigo,correo,token,codigo,fecha_creacion) VALUES (NULL,'$email','$token', $codigo, NULL)";
+        $insertar = "INSERT INTO reset_contrasena (correo,token,codigo) VALUES ('$email','$token', $codigo)";
             echo $insertar;
         }
     }
