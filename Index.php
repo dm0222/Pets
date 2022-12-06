@@ -40,20 +40,20 @@ require("./Controlador/RecuperarContrasena.php");
             <div class="sub-contenedor-Derecha">
                 <form action="./Controlador/Usuario.php" method="post">
                     <div class="input-user">
-                        <input id="name" name="Usuarios" type="text" class="form-input"
+                        <input id="name" name="Usuario" type="text" class="form-input"
                             placeholder="Numero de Identificación ">
                     </div>
                     <div class="input-password">
-                        <input id="name" name="Contrasenas" type="password" class="form-input" placeholder="Contraseña">
+                        <input id="name" name="Contrasena" type="password" class="form-input" placeholder="Contraseña">
                     </div>
                     <input type="submit" name="validar" class="submit01" value="Iniciar Sesión">
                 </form>
+
                 <form action="#" method="post">
                     <p class="recuperar">¿Has olvidado la contraseña?</p>
                     <div class="submenu-recuperar">
                         <div class="input-email">
-                            <input id="name" name="Usuario" type="text" class="form-input"
-                                placeholder="Correo Eletronico">
+                            <input id="name" name="Correo" type="text" class="form-input" placeholder="Correo Eletronico">
                         </div>
                         <input type="submit" name="validar" class="submit04" value="Enviar Solicitud">
                     </div>
@@ -66,33 +66,36 @@ require("./Controlador/RecuperarContrasena.php");
                 <img class="cerrar" src="./Vista/Img/cerrar.png">
                 <div class="Inputs-izquierda">
                     <div class="input-user">
-                        <input id="name" name="First-name" type="text" class="form-input" placeholder="Primer Nombre">
+                        <input id="PrimerNombre" name="PrimerNombre" type="text" class="form-input"
+                            placeholder="Primer Nombre">
                     </div>
                     <div class="input-email">
-                        <input id="name" name="Second-name" type="text" class="form-input" placeholder="Segundo Nombre">
+                        <input id="SegundoNombre" name="SegundoNombre" type="text" class="form-input"
+                            placeholder="Segundo Nombre">
                     </div>
                     <div class="input-password">
-                        <input id="name" name="First-surname" type="text" class="form-input"
+                        <input id="PrimerApellido" name="PrimerApellido" type="text" class="form-input"
                             placeholder="Primer Apellido">
                     </div>
                     <div class="input-password">
-                        <input id="name" name="Second-surname" type="text" class="form-input"
+                        <input id="SegundoApellido" name="SegundoApellido" type="text" class="form-input"
                             placeholder="Segundo Apellido">
                     </div>
                 </div>
                 <div class="Inputs-derecha">
                     <div class="input-user">
-                        <input id="name" name="Documento" type="text" class="form-input"
+                        <input id="Documento" name="Documento" type="text" class="form-input"
                             placeholder="Numero de Identificación">
                     </div>
                     <div class="input-email">
-                        <input id="name" name="Usuario" type="text" class="form-input" placeholder="Correo Eletronico">
+                        <input id="email" name="Correo" type="text" class="form-input" placeholder="Correo Eletronico">
                     </div>
                     <div class="input-password">
-                        <input id="name" name="Contrasena" type="password" class="form-input" placeholder="Contraseña">
+                        <input id="Contrasena" name="Contrasena" type="password" class="form-input"
+                            placeholder="Contraseña">
                     </div>
                     <div class="input-password">
-                        <input id="name" name="Contrasena" type="password" class="form-input"
+                        <input id="RepContrasena" name="RepContrasena" type="password" class="form-input"
                             placeholder="Confirmar Contraseña">
                     </div>
                 </div>
@@ -110,10 +113,11 @@ require("./Controlador/RecuperarContrasena.php");
             </div>
             <div class="contenedor-recuperacion">
                 <div class="input-password">
-                    <input id="name" name="Contrasena" type="password" class="form-input" placeholder="Contraseña">
+                    <input id="NuevaContrasena" name="NuevaContrasena" type="password" class="form-input"
+                        placeholder="Contraseña">
                 </div>
                 <div class="input-password">
-                    <input id="name" name="Contrasena" type="password" class="form-input"
+                    <input id="RepNuContrasena" name="RepNuContrasena" type="password" class="form-input"
                         placeholder="Confirmar Contraseña">
                 </div>
             </div>

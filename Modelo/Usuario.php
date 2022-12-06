@@ -1,4 +1,5 @@
 <?php
+    require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Modelo/header.php");
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Conexion/Conexion.php");
     class Usuaraio {
         protected $codigo; 
@@ -59,13 +60,13 @@
         public function ValidarSession($usuario,$contrasena){
             $conexion = new Conexion;
             $conectar = $conexion->conexion();
-            $validar = "SELECT * FROM cuenta WHERE Usuario = '$usuario'";
+            $validar = "SELECT * FROM cuenta WHERE email = '$usuario'";
             $resultado = mysqli_query($conectar, $validar);
             if($row = mysqli_fetch_array($resultado)){
-                $validar = "SELECT * FROM cuenta WHERE Usuario = '$usuario' AND Contrasena = '$contrasena'";
+                $validar = "SELECT * FROM cuenta WHERE email = '$usuario' AND Contrasena = '$contrasena'";
                 $resultado = mysqli_query($conectar, $validar);
                 if($row= mysqli_fetch_array($resultado)){
-                    $_SESSION['usuario']=$row['Usuario'];
+                    $_SESSION['usuario']=$row['email'];
                     echo "
                         <script type='text/javascript'>
                             Swal.fire({
@@ -113,7 +114,11 @@
                     </script>
                 ";
             }
+            
         }
-    }
-
+        
+}
+    
+require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Modelo/footer.php");
+    
 ?>

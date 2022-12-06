@@ -1,9 +1,9 @@
 <?php
 class Conexion{
-    private $hostname = "localhost";
+    private $hostname = "192.168.1.2";
     private $database = "Pets";
-    private $user ="root";
-    private $password = "1234567890";
+    private $user ="administrador";
+    private $password = "123456789";
 
     public function conexion(){
         $link=mysqli_connect($this->hostname,$this->user,$this->password) 
