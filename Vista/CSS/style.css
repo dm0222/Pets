@@ -29,7 +29,8 @@ video {
     pointer-events: none;
 }
 
-.video-background, .video-tr{
+.video-background,
+.video-tr {
     position: absolute;
     display: block;
     top: 0;
@@ -42,7 +43,7 @@ video {
 
 /* Contenedor general */
 
-.contenedo-general {
+.contenedor-general {
     position: absolute;
     top: 10%;
     left: 50%;
@@ -57,6 +58,7 @@ video {
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(100px);
     box-shadow: 3px 5px 5px 5px #00000044;
+    z-index: 1;
 }
 
 /* Titulo */
@@ -81,7 +83,7 @@ video {
     justify-content: center;
 }
 
- /* Parrafor del titulo */
+/* Parrafor del titulo */
 
 .contendor-titulo p {
     position: relative;
@@ -149,7 +151,7 @@ video {
     z-index: 20;
 }
 
-.sub-contenedor-Derecha{
+.sub-contenedor-Derecha {
     position: relative;
     top: 35%;
     transform: translateY(-50%);
@@ -168,7 +170,7 @@ video {
     width: 70%;
     border-radius: 10px;
     border: solid 1px #F0F0F0;
-} 
+}
 
 .contenedor-Derecha input::placeholder {
     padding: 10px;
@@ -200,21 +202,28 @@ video {
     text-decoration: underline;
 }
 
-.linea {
-    position: relative;
-    top: 20%;
+.submenu-recuperar {
+    position: absolute;
+    display: none;
+    top: 80%;
     left: 50%;
     transform: translateX(-50%);
-    background: #F0F2F5;
-    height: 2px;
     width: 70%;
+    background: #FFFFFF;
+    z-index: 50;
+}
+
+.submit04 {
+    width: 74%;
+    height: 35px;
+    background: #fdfd96;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
     margin-top: 3%;
-    border-radius: 20px;
 }
 
 .submit02 {
-    position: relative;
-    top: 15%;
     width: 74%;
     height: 35px;
     background: #36A420;
@@ -222,7 +231,7 @@ video {
     color: #fff;
     cursor: pointer;
     margin-top: 3%;
-} 
+}
 
 /* Contenedor de registro */
 
@@ -270,18 +279,6 @@ video {
     width: 45%;
 }
 
-.linea02 {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffffff;
-    height: 2px;
-    width: 80%;
-    margin-top: 3%;
-    border-radius: 20px;
-}
-
 .Inputs-izquierda input {
     position: relative;
     margin-top: 3%;
@@ -290,7 +287,7 @@ video {
     width: 80%;
     border-radius: 10px;
     border: solid 1px #F0F0F0;
-} 
+}
 
 .Inputs-izquierda input::placeholder {
     padding: 10px;
@@ -304,7 +301,7 @@ video {
     width: 80%;
     border-radius: 10px;
     border: solid 1px #F0F0F0;
-} 
+}
 
 .Inputs-derecha input::placeholder {
     padding: 10px;
@@ -312,7 +309,7 @@ video {
 
 .submit03 {
     position: absolute;
-    top: 70%;
+    top: 68%;
     left: 50%;
     transform: translateX(-50%);
     background: #36A420;
@@ -324,9 +321,78 @@ video {
     margin-top: 3%;
     border-radius: 10px;
     border: solid 1px #F0F0F0;
-} 
+}
 
 
+/* Restablecer Contraseña */
 
+.contenedor-general-02 {
+    position: absolute;
+    display: none; /* solo debe cambiar el display: block; para que se sobreponga */
+    top: 10%;
+    left: 50%;
+    margin: 0%;
+    padding: 0%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    height: 80%;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.452);
+    background-clip: content-box;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(100px);
+    box-shadow: 3px 5px 5px 5px #00000044;
+    z-index: 100; /* determina la capa si es superior o inferior */
+}
 
+.contenedor-recuperacion {
+    position: fixed;
+    top: 20%;
+    left: 3%;
+    margin: 0%;
+    padding: 0%;
+    height: 70%;
+    width: 93.5%;
+    background: #F0F0F0;
+    border-color: #F0F2F5;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    font-family: 'Roboto-Regular';
+    font-size: 1.5vw;
+    text-align: left;
+    box-shadow: 0px 5px 5px #00000044;
+}
 
+.contenedor-recuperacion input {
+    position: relative;
+    margin-top: 4%;
+    padding-left: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 30px;
+    width: 70%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+.contenedor-recuperacion input::placeholder {
+    padding: 10px;
+}
+
+.submit04 {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #36A420;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}

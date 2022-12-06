@@ -24,7 +24,7 @@
     </div>
 
     <!-- Contenedor General -->
-    <div class="contenedo-general">
+    <div class="contenedor-general">
         <div class="contendor-titulo">
             <p>Pets ++</p>
         </div>
@@ -46,26 +46,33 @@
                         <input id="name" name="Contrasenas" type="password" class="form-input" placeholder="Contraseña">
                     </div>
                     <input type="submit" name="validar" class="submit01" value="Iniciar Sesión">
-                    <p class="recuperar">¿Has olvidado la contraseña?</p>
-                    <div class="linea"></div>
-                    <input type="button" class="submit02" value="Crear cuenta nueva">
                 </form>
+                <form action="#" method="post">
+                    <p class="recuperar">¿Has olvidado la contraseña?</p>
+                    <div class="submenu-recuperar">
+                        <div class="input-email">
+                            <input id="name" name="Usuario" type="text" class="form-input"
+                                placeholder="Correo Eletronico">
+                        </div>
+                        <input type="submit" name="validar" class="submit04" value="Enviar Solicitud">
+                    </div>
+                </form>
+                <input type="button" class="submit02" value="Crear cuenta nueva">
             </div>
         </div>
-
         <div class="contenedor-registro">
             <form action="" method="POST">
                 <img class="cerrar" src="./Vista/Img/cerrar.png">
                 <div class="Inputs-izquierda">
                     <div class="input-user">
-                        <input id="name" name="First-name" type="text" class="form-input"
-                            placeholder="Primer Nombre">
+                        <input id="name" name="First-name" type="text" class="form-input" placeholder="Primer Nombre">
                     </div>
                     <div class="input-email">
                         <input id="name" name="Second-name" type="text" class="form-input" placeholder="Segundo Nombre">
                     </div>
                     <div class="input-password">
-                        <input id="name" name="First-surname" type="text" class="form-input" placeholder="Primer Apellido">
+                        <input id="name" name="First-surname" type="text" class="form-input"
+                            placeholder="Primer Apellido">
                     </div>
                     <div class="input-password">
                         <input id="name" name="Second-surname" type="text" class="form-input"
@@ -88,15 +95,34 @@
                             placeholder="Confirmar Contraseña">
                     </div>
                 </div>
-                <div class="linea02"></div>
                 <input type="submit" name="agregar" class="submit03" value="Registrarte">
             </form>
         </div>
-
     </div>
+
+    <!-- recuperar contraseña -->
+
+    <div class="contenedor-general-02">
+        <form action="" method="POST">
+            <div class="contendor-titulo">
+                <p>Pets ++ </p>
+            </div>
+            <div class="contenedor-recuperacion">
+                <div class="input-password">
+                    <input id="name" name="Contrasena" type="password" class="form-input" placeholder="Contraseña">
+                </div>
+                <div class="input-password">
+                    <input id="name" name="Contrasena" type="password" class="form-input"
+                        placeholder="Confirmar Contraseña">
+                </div>
+            </div>
+            <input type="submit" name="agregar" class="submit04" value="Restablecer">
+        </form>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
     <script src="./sw/dist/sweetalert2.min.js"></script>

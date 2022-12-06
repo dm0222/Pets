@@ -1,3 +1,5 @@
+/* formulario de registro */
+
 let validarMenuD = 0
 
 $(".submit02").click(function () {
@@ -23,3 +25,21 @@ $(".cerrar").click(function () {
     $(".submit02").css("color", "#FFF");
     validarMenuD = 0
 });
+
+/* formato de recuperacion de contraseña*/
+
+let validarRecuperacion = 0
+
+$(".recuperar").click(function () {
+    switch (validarRecuperacion){
+        case 0:
+            $(".submenu-recuperar").css("display", "block");
+            validarRecuperacion = 1;
+        break;
+        case 1:
+            $(".submenu-recuperar").css("display", "none");
+            validarRecuperacion = 0;
+        break;
+    }
+});
+
