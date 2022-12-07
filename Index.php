@@ -13,40 +13,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css" />
     <link rel="stylesheet" href="./Vista/css/style.css" />
     <link rel="icon" href="./Vista/img/vet.png" />
+    
     <script type="text/javascript" language="Javascript" src="./Vista/JS/scripts.js"></script>
     <title>Pets ++</title>
 </head>
 
 <body>
-    <!-- recuperar contraseña -->
-    <?php
-    if(isset($_GET['email']) && isset($_GET['token'])){
-        $email = $_GET['email'];
-        $token = $_GET['token'];
-    ?>
-    <div class="contenedor-general-02">
-        <form action="./Controlador/RecuperarContrasena.php" method="POST">
-            <div class="contendor-titulo">
-                <p>Pets ++ </p>
-            </div>
-            <div class="contenedor-recuperacion">
-                <div class="input-password">
-                    <input id="NuevaContrasena" name="NuevaContrasena" type="password" class="form-input"
-                        placeholder="Contraseña">
-                </div>
-                <div class="input-password">
-                    <input id="RepNuContrasena" name="RepNuContrasena" type="password" class="form-input"
-                        placeholder="Confirmar Contraseña">
-                </div>
-            </div>
-            <input type ="hidden" name="email" value=<?php echo $email?>>
-            <input type="submit" name="modificar" class="submit04" value="Restablecer">
-        </form>
-    </div>
-    <?php
-    }
-    else{
-    ?>
+    
     <!-- Video - background - inicio -->
     <div class="video-background">
         <video class="video-back" id="video" src="./Vista/Videos/Azul.mp4" muted autoplay loop playsinline></video>
@@ -76,7 +49,6 @@
                     </div>
                     <input type="submit" name="validar" class="submit01" value="Iniciar Sesión">
                 </form>
-
                 <form action="./Controlador/RecuperarContrasena.php" method="post">
                     <p class="recuperar">¿Has olvidado la contraseña?</p>
                     <div class="submenu-recuperar">
@@ -95,11 +67,11 @@
                 <div class="Inputs-izquierda">
                     <div class="input-user">
                         <input id="Documento" name="Documento" type="text" class="form-input"
-                            placeholder="Numero de Identificación">
+                            placeholder="Numero de Identificación" required>
                     </div>
                     <div class="input-user">
                         <input id="PrimerNombre" name="PrimerNombre" type="text" class="form-input"
-                            placeholder="Primer Nombre">
+                            placeholder="Primer Nombre" required>
                     </div>
                     <div class="input-user">
                         <input id="SegundoNombre" name="SegundoNombre" type="text" class="form-input"
@@ -107,7 +79,7 @@
                     </div>
                     <div class="input-user">
                         <input id="PrimerApellido" name="PrimerApellido" type="text" class="form-input"
-                            placeholder="Primer Apellido">
+                            placeholder="Primer Apellido" required>
                     </div>
                     <div class="input-user">
                         <input id="SegundoApellido" name="SegundoApellido" type="text" class="form-input"
@@ -116,28 +88,25 @@
                 </div>
                 <div class="Inputs-derecha">
                     <div class="input-user">
-                        <input id="Celular" name="Celular" type="text" class="form-input" placeholder="Numero Celular">
+                        <input id="Celular" name="Celular" type="text" class="form-input" placeholder="Numero Celular" required>
                     </div>
                     <div class="input-user">
                         <input id="Telefono" name="Telefono" type="text" class="form-input" placeholder="Numero Telefono">
                     </div>
                     <div class="input-email">
-                        <input id="Correo" name="Correo" type="text" class="form-input" placeholder="Correo Eletronico">
+                        <input id="Correo" name="Correo" type="text" class="form-input" placeholder="Correo Eletronico" required>
                     </div>
                     <div class="input-password">
-                        <input id="Contrasena" name="Contrasena" type="password" class="form-input" placeholder="Contraseña">
+                        <input id="Contrasena" name="Contrasena" type="password" class="form-input" placeholder="Contraseña" required>
                     </div>
                     <div class="input-password">
-                        <input id="RepContrasena" name="RepContrasena" type="password" class="form-input" placeholder="Confirmar Contraseña">
+                        <input id="RepContrasena" name="RepContrasena" type="password" class="form-input" placeholder="Confirmar Contraseña" required>
                     </div>
                 </div>
                 <input type="submit" name="agregar" class="submit03" value="Registrarte" >
             </form>
         </div>
     </div>
-<?php
-}
-?>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js">
     </script>
