@@ -1,6 +1,6 @@
 <?php
-require("./Controlador/Usuario.php");
-require("./Controlador/RecuperarContrasena.php");
+    include("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/registros.php");
+    include("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/RecuperarContrasena.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,6 @@ require("./Controlador/RecuperarContrasena.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css" />
-    <link rel="stylesheet" href="./sw/dist/sweetalert2.min.css" />
     <link rel="stylesheet" href="./Vista/css/style.css" />
     <link rel="icon" href="./Vista/img/vet.png" />
     <script type="text/javascript" language="Javascript" src="./Vista/JS/scripts.js"></script>
@@ -19,6 +18,35 @@ require("./Controlador/RecuperarContrasena.php");
 </head>
 
 <body>
+    <!-- recuperar contraseña -->
+    <?php
+    if(isset($_GET['email']) && isset($_GET['token'])){
+        $email = $_GET['email'];
+        $token = $_GET['token'];
+    ?>
+    <div class="contenedor-general-02">
+        <form action="./Controlador/RecuperarContrasena.php" method="POST">
+            <div class="contendor-titulo">
+                <p>Pets ++ </p>
+            </div>
+            <div class="contenedor-recuperacion">
+                <div class="input-password">
+                    <input id="NuevaContrasena" name="NuevaContrasena" type="password" class="form-input"
+                        placeholder="Contraseña">
+                </div>
+                <div class="input-password">
+                    <input id="RepNuContrasena" name="RepNuContrasena" type="password" class="form-input"
+                        placeholder="Confirmar Contraseña">
+                </div>
+            </div>
+            <input type ="hidden" name="email" value=<?php echo $email?>>
+            <input type="submit" name="modificar" class="submit04" value="Restablecer">
+        </form>
+    </div>
+    <?php
+    }
+    else{
+    ?>
     <!-- Video - background - inicio -->
     <div class="video-background">
         <video class="video-back" id="video" src="./Vista/Videos/Azul.mp4" muted autoplay loop playsinline></video>
@@ -38,9 +66,9 @@ require("./Controlador/RecuperarContrasena.php");
         </div>
         <div class="contenedor-Derecha">
             <div class="sub-contenedor-Derecha">
-                <form action="./Controlador/Usuario.php" method="post">
+                <form action="./Controlador/validacion.php" method="post">
                     <div class="input-user">
-                        <input id="name" name="Usuario" type="text" class="form-input"
+                        <input id="name" name="Correo" type="text" class="form-input"
                             placeholder="Numero de Identificación ">
                     </div>
                     <div class="input-password">
@@ -49,88 +77,72 @@ require("./Controlador/RecuperarContrasena.php");
                     <input type="submit" name="validar" class="submit01" value="Iniciar Sesión">
                 </form>
 
-                <form action="#" method="post">
+                <form action="./Controlador/RecuperarContrasena.php" method="post">
                     <p class="recuperar">¿Has olvidado la contraseña?</p>
                     <div class="submenu-recuperar">
                         <div class="input-email">
                             <input id="name" name="Correo" type="text" class="form-input" placeholder="Correo Eletronico">
                         </div>
-                        <input type="submit" name="validar" class="submit04" value="Enviar Solicitud">
+                        <input type="submit" name="recuperar" class="submit04" value="Recuperar Contraseña">
                     </div>
                 </form>
                 <input type="button" class="submit02" value="Crear cuenta nueva">
             </div>
         </div>
         <div class="contenedor-registro">
-            <form action="" method="POST">
+            <form action="./Controlador/registros.php" method="POST" name ="registro">
                 <img class="cerrar" src="./Vista/Img/cerrar.png">
                 <div class="Inputs-izquierda">
+                    <div class="input-user">
+                        <input id="Documento" name="Documento" type="text" class="form-input"
+                            placeholder="Numero de Identificación">
+                    </div>
                     <div class="input-user">
                         <input id="PrimerNombre" name="PrimerNombre" type="text" class="form-input"
                             placeholder="Primer Nombre">
                     </div>
-                    <div class="input-email">
+                    <div class="input-user">
                         <input id="SegundoNombre" name="SegundoNombre" type="text" class="form-input"
                             placeholder="Segundo Nombre">
                     </div>
-                    <div class="input-password">
+                    <div class="input-user">
                         <input id="PrimerApellido" name="PrimerApellido" type="text" class="form-input"
                             placeholder="Primer Apellido">
                     </div>
-                    <div class="input-password">
+                    <div class="input-user">
                         <input id="SegundoApellido" name="SegundoApellido" type="text" class="form-input"
                             placeholder="Segundo Apellido">
                     </div>
                 </div>
                 <div class="Inputs-derecha">
                     <div class="input-user">
-                        <input id="Documento" name="Documento" type="text" class="form-input"
-                            placeholder="Numero de Identificación">
+                        <input id="Celular" name="Celular" type="text" class="form-input" placeholder="Numero Celular">
+                    </div>
+                    <div class="input-user">
+                        <input id="Telefono" name="Telefono" type="text" class="form-input" placeholder="Numero Telefono">
                     </div>
                     <div class="input-email">
-                        <input id="email" name="Correo" type="text" class="form-input" placeholder="Correo Eletronico">
+                        <input id="Correo" name="Correo" type="text" class="form-input" placeholder="Correo Eletronico">
                     </div>
                     <div class="input-password">
-                        <input id="Contrasena" name="Contrasena" type="password" class="form-input"
-                            placeholder="Contraseña">
+                        <input id="Contrasena" name="Contrasena" type="password" class="form-input" placeholder="Contraseña">
                     </div>
                     <div class="input-password">
-                        <input id="RepContrasena" name="RepContrasena" type="password" class="form-input"
-                            placeholder="Confirmar Contraseña">
+                        <input id="RepContrasena" name="RepContrasena" type="password" class="form-input" placeholder="Confirmar Contraseña">
                     </div>
                 </div>
-                <input type="submit" name="agregar" class="submit03" value="Registrarte">
+                <input type="submit" name="agregar" class="submit03" value="Registrarte" >
             </form>
         </div>
     </div>
-
-    <!-- recuperar contraseña -->
-
-    <div class="contenedor-general-02">
-        <form action="" method="POST">
-            <div class="contendor-titulo">
-                <p>Pets ++ </p>
-            </div>
-            <div class="contenedor-recuperacion">
-                <div class="input-password">
-                    <input id="NuevaContrasena" name="NuevaContrasena" type="password" class="form-input"
-                        placeholder="Contraseña">
-                </div>
-                <div class="input-password">
-                    <input id="RepNuContrasena" name="RepNuContrasena" type="password" class="form-input"
-                        placeholder="Confirmar Contraseña">
-                </div>
-            </div>
-            <input type="submit" name="agregar" class="submit04" value="Restablecer">
-        </form>
-    </div>
-
+<?php
+}
+?>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
-    <script src="./sw/dist/sweetalert2.min.js"></script>
     <script src="./Vista/JS/jquery-3.6.1.min.js"></script>
     <script src="./Vista/JS/main.js"></script>
 

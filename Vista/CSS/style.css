@@ -328,7 +328,7 @@ video {
 
 .contenedor-general-02 {
     position: absolute;
-    display: none; /* solo debe cambiar el display: block; para que se sobreponga */
+    display: block; /* solo debe cambiar el display: block; para que se sobreponga */
     top: 10%;
     left: 50%;
     margin: 0%;

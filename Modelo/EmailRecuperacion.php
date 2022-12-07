@@ -9,10 +9,12 @@
     <!DOCTYPE html>
     <html lang="es">
     <head>
-        
+
     </head>
     <body>
-        <p > Hola Mundo <p>
+        <p>Para restablecer da click <a href="http://localhost/Pets/index.php?email='.$email.'&token='.$token.'"> aqui </a></p>
+
+        <p><small>Si usted no envio este codigo favor de omitir</small></p>
     </body>
     </html>
     ';
