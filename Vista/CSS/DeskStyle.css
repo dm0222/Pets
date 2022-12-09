@@ -20,7 +20,7 @@
 }
 
 body {
-    background: #fff;
+    background: linear-gradient(to right, #d8f8e1,#b0f2c2);
     font-family: 'Roboto-Lihgt';
     min-height: 100vh;
 }
@@ -42,19 +42,263 @@ video {
 
 /* Contenedor general */
 
-.contenedo-general {
+.contenedor-general {
     position: absolute;
-    top: 10%;
-    left: 50%;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
     margin: 0%;
     padding: 0%;
-    transform: translateX(-50%);
-    border-radius: 20px;
+    z-index: 10;
+}
+
+.menu-superior {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 8%;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    font-family: 'Roboto-Black';
+    font-size: 2.5vw;
+    background: #ffffff;
+    box-shadow: 3px 5px 5px 5px #00000044;
+    z-index: 50;
+}
+
+.menu-superior p {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5%;
+}
+
+.icon01 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1%;
     height: 80%;
-    width: 80%;
+}
+
+.menu-izquierda{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 17%;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    border-right: solid 2px #F0F0F0;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(100px);
+}
+
+.menu-izquierda div {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.menu-izquierda div img {
+    position: relative;
+    left: 5%;
+    top: 50%;
+    transform: translateY(30%);
+    width: 15%;
+    border-radius: 50px;
+}
+
+.menu-izquierda div p {
+    position: relative;
+    top: 50%;
+    transform: translateY(-100%);
+    left: 25%;
+    font-family: "Roboto-Black";
+    font-size: 1.2vw;
+    margin: 0%;
+    padding: 0%;
+}
+.menu-izquierda div:hover { 
+    box-shadow: 3px 5px 5px 5px #00000044;
+}
+
+.menu-central {
+    position: absolute;
+    top: 25%;
+    left: 33%;
+    height: 60%;
+    width: 50%;
+    font-family: "Roboto-Black";
+    font-size: 1.2vw;
+}
+
+.sub-menu01 {
+    top: 20%;
+    width: 27%;
+    height: 60%;
+    border-radius: 20px;
+    cursor: pointer;
     background: rgba(255, 255, 255, 0.452);
+}
+
+.sub-menu01:hover {
+    box-shadow: 3px 5px 5px 5px #00000044;
+}
+
+.registroP {
+    position: absolute;
     background-clip: content-box;
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(100px);
+    left: 15%;
+    text-align: center;
+}
+
+.historiaC {
+    position: absolute;
+    background-clip: content-box;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(100px);
+    right: 15%;
+    text-align: center;
+}
+
+.sub-menu01 img {
+    position: relative;
+    top: 15%;
+    width: 35%;
+}
+
+.sub-menu01 p {
+    position: relative;
+    top: 35%;
+}
+
+/* Formato de Registro*/
+
+.contenedor-registro {
+    position: fixed;
+    top: 14%;
+    left: 150%;
+    height: 80%;
+    width: 70%;
+    background: #ffffff;
+    border-radius: 20px;
     box-shadow: 3px 5px 5px 5px #00000044;
+} 
+
+/* titulo */
+
+.contendor-titulo {
+    position: absolute;
+    top: 0%;
+    margin: 0%;
+    padding: 0%;
+    width: 99.9%;
+    height: 8%;
+    background: #C2E44D;
+    border-color: #C2E44D;
+    border-width: 1px;
+    border-style: solid;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: rgb(0, 0, 0);
+    font-family: 'Roboto-Black';
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+.contendor-titulo p{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* cerrar */
+
+.cerrarRegistroP {
+    position: absolute;
+    top: 1%;
+    left: 96%;
+    width: 3%;
+    cursor: pointer;
+}
+
+/* Propietario*/
+
+.registro-propietario{
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+}
+
+/* titulo de los imputs*/
+
+.registro-propietario p {
+    position: relative;
+    top: 0%;
+    font-family: "Roboto-Regular";
+    text-align: center;
+}
+
+/* Inputs */
+
+.registro-propietario input {
+    display: inline-block;
+    margin: 1%;
+    margin-top: 2%;
+    padding-left: 10px;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;    
+}
+
+/* Mascota */
+
+.registro-mascota {
+    position: absolute;
+    top: 55%;
+    width: 100%;
+    text-align: center;
+}
+
+.registro-mascota input {
+    display: inline-block;
+    margin: 1%;
+    margin-top: 2%;
+    padding-left: 10px;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;     
+}
+
+.registro-mascota p {
+    position: relative;
+    top: 0%;
+    font-family: "Roboto-Regular";
+    text-align: center;
+}
+
+.RegistroProp {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #36A420;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
 }
