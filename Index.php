@@ -95,7 +95,7 @@
                             placeholder="Confirmar Contraseña">
                     </div>
                 </div>
-                <input type="submit" name="agregar" class="submit03" value="Registrarte">
+                <input type="submit" name="agregar" class="submit03" value="Registrar">
             </form>
         </div>
     </div>
