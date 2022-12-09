@@ -1,5 +1,6 @@
     <?php
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Conexion/Conexion.php");
+    session_start();
     class Usuaraio {
         protected $codigo; 
         protected $usuario;
@@ -39,6 +40,7 @@
             $conexion=new Conexion;
             $conecta = $conexion->conexion();
             $insertar="INSERT INTO cuenta VALUES (NULL,'$Documento','$Email','$contrasena',12, 11)";
+            echo $insertar;
             $resultado=mysqli_query($conecta,$insertar);
             echo "
                 <script>
@@ -65,23 +67,10 @@
                 $validar = "SELECT * FROM cuenta WHERE email = '$Email' AND Contrasena = '$contrasena'";
                 $resultado = mysqli_query($conectar, $validar);
                 if($row= mysqli_fetch_array($resultado)){
-                    $_SESSION['Email']=$row['email'];
-                    echo "
-                        <script>
-                            Swal.fire({
-                                icon:'success',
-                                title:'Bienvenido',
-                                text:'$_SESSION[Email] a Pets'
-                            }).then((result) => {
-                                if(result.isConfirmed){
-                                    window.location = '../Vista/Medico/DeskMedico.php';
-                                }
-                            });   
-                        </script>
-                    ";
+                    $this->ValidarEstado($Email);
                 }
                 else{
-                    $_SESSION['usuario']=NULL;
+                    $_SESSION['Correo']= NULL;
                     echo "
                         <script>
                             Swal.fire({
@@ -98,7 +87,7 @@
                 }
             }
             else{
-                $_SESSION['usuario']=NULL;
+                $_SESSION['Correo']=NULL;
                 echo "
                     <script>
                         Swal.fire({
@@ -116,7 +105,79 @@
             
         }
 
-        public function MsnContrasenasIguales (){
+        public function ValidarEstado($Email){
+            $conexion = new Conexion;
+            $conectar = $conexion->conexion();
+            $validar = "SELECT * FROM cuenta WHERE email = '$Email'";
+            $resultado = mysqli_query($conectar, $validar);
+            $row = mysqli_fetch_row($resultado);
+            $Email = $row[2];
+            $Rol =$row[4];            
+            $Estado = $row[5];
+            switch ($Estado){
+                case 11:
+                    echo "
+                        <script>
+                            Swal.fire({
+                                icon:'error',
+                                title:'ERROR!!',
+                                text:'Su cuenta aun no a sido activada, Comuniquese con el administrador'
+                            }).then((result) => {
+                                if(result.isConfirmed){
+                                    window.location = '../index.php';
+                                }
+                            });
+                        </script>
+                    ";
+                break;
+                case 12:
+                    $this->ValidarRol($Rol,$Email);
+                break;
+            }
+        }
+
+        public function ValidarRol($Rol,$Email){
+
+            switch ($Rol){
+                case 11:
+                    $_SESSION['Correo'] = $Email;
+                    echo "
+                        <script>
+                            Swal.fire({
+                                icon:'success',
+                                title:'Bienvenido',
+                                text:'$_SESSION[Correo] a Pets'
+                            }).then((result) => {
+                                if(result.isConfirmed){
+                                    window.location = '../Vista/Administrador/DeskAdmin.php';
+                                }
+                            });   
+                        </script>
+                    "; 
+                break;
+                case 12:
+                    $_SESSION['Correo']= $Email;
+                    echo "
+                        <script>
+                            Swal.fire({
+                                icon:'success',
+                                title:'Bienvenido',
+                                text:'$_SESSION[Correo] a Pets'
+                            }).then((result) => {
+                                if(result.isConfirmed){
+                                    window.location = '../Vista/Medico/DeskMedico.php';
+                                }
+                            });   
+                        </script>
+                    "; 
+                break;
+            }
+        }
+
+        
+
+
+        public function MsnContrasenasIguales(){
             echo "
                 <script>
                     Swal.fire({
@@ -131,6 +192,5 @@
                 </script>
             ";
         }
-            
     } 
     ?>

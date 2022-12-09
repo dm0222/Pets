@@ -1,24 +1,37 @@
 <?php
-    require_once 'Propietario.php';
+    require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Conexion/Conexion.php");
     class Mascota{
-        private $Codigo;
-        private $Nombre;
-        private $Edad;
-        private $Genero;
-        private $Especie;
-        private $Raza;
-        private $Color;
+    
+        public function AgregarMascota($Documento,$Nombre,$Edad,$Genero,$Raza,$Especie,$Color,$Observaciones){
+            
+        }
 
-        public $Obj_Propietario = new Propietario($this->Documento);
+        public function EditarMascota($Codigo,$Documento,$Nombre,$Edad,$Genero,$Raza,$Especie,$Color,$Observaciones){
 
-        public function __construct($Codigo,$Nombre,$Edad,$Genero,$Especie,$Raza,$Color){
-            $this->Codigo = $Codigo;
-            $this->Nombre = $Nombre;
-            $this->Edad = $Edad;
-            $this->Genero = $Genero;
-            $this->Especie= $Especie;
-            $this->Raza = $Raza;
-            $this->$Color = $Color;
+        }
+
+        public function EliminarMascota($Codigo){
+
+        }
+
+        public function ListarMascota($Codigo,$Documento,$Nombre,$Edad,$Genero,$Raza,$Especie,$Color,$Observaciones){
+
+        }
+
+        public function AgregarRaza($Raza){
+
+        }
+
+        public function AgregarEspecie($Especie){
+
+        }
+
+        public function ListarRaza(){
+
+        }
+
+        public function ListarEspecie(){
+
         }
     }
 

@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css" />
     <link rel="stylesheet" href="./Vista/css/style.css" />
     <link rel="icon" href="./Vista/img/vet.png" />
-    
     <script type="text/javascript" language="Javascript" src="./Vista/JS/scripts.js"></script>
     <title>Pets ++</title>
 </head>
@@ -94,7 +93,7 @@
                         <input id="Telefono" name="Telefono" type="text" class="form-input" placeholder="Numero Telefono">
                     </div>
                     <div class="input-email">
-                        <input id="Correo" name="Correo" type="text" class="form-input" placeholder="Correo Eletronico" required>
+                        <input id="Correo" name="Correo" type="email" class="form-input" placeholder="Correo Eletronico" required>
                     </div>
                     <div class="input-password">
                         <input id="Contrasena" name="Contrasena" type="password" class="form-input" placeholder="Contraseña" required>
@@ -103,7 +102,7 @@
                         <input id="RepContrasena" name="RepContrasena" type="password" class="form-input" placeholder="Confirmar Contraseña" required>
                     </div>
                 </div>
-                <input type="submit" name="agregar" class="submit03" value="Registrarte" >
+                <input type="submit" name="AgregarMedico" class="submit03" value="Registrarte" >
             </form>
         </div>
     </div>
