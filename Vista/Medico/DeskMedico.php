@@ -9,8 +9,14 @@ if(isset($_SESSION['timeout'])){
     }
 }
 $_SESSION['timeout'] = time();
-require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Conexion/Conexion.php");
+require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/listar.php");
+
 if($_SESSION['Correo']){
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -88,7 +94,16 @@ if($_SESSION['Correo']){
                     <input id="name" name="name" type="text" class="form-input" placeholder="Nombre">
                     <input id="name" name="surname" type="number" class="form-input" placeholder="Edad">
                     <input id="name" name="dni" type="text" class="form-input" placeholder="Genero">
+                    <select name="FK_CodEspecie" id="FK_CodEspecie" type="text" class="form-input" placeholder="Especie">
+                    <?php
+                        ListarEspecie();
+                    ?>
                     <input id="name" name="address" type="text" class="form-input" placeholder="Especie">
+                    <select name="FK_CodRaza" id="selectraza" type="text" class="form-input" placeholder="Especie">
+
+                    <?php
+                        ListarRaza();
+                    ?>
                     <input id="name" name="phone" type="text" class="form-input" placeholder="Raza">
                     <input id="name" name="email" type="text" class="form-input" placeholder="Color">
                     <input id="name" name="email" type="text" class="form-input" placeholder="Observaciones">
