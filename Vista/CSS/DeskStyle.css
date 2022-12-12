@@ -20,16 +20,18 @@
 }
 
 body {
-    background: linear-gradient(to right, #d8f8e1,#b0f2c2);
     font-family: 'Roboto-Lihgt';
     min-height: 100vh;
+    background-image: url(../Img/Background/002.jpg);
+    background-size: cover;
 }
 
 video {
     pointer-events: none;
 }
 
-.video-background, .video-tr{
+.video-background,
+.video-tr {
     position: absolute;
     display: block;
     top: 0;
@@ -82,7 +84,7 @@ video {
     height: 80%;
 }
 
-.menu-izquierda{
+.menu-izquierda {
     position: absolute;
     top: 0%;
     left: 0%;
@@ -100,8 +102,9 @@ video {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    border-radius: 20px;
+    /* border-radius: 20px; */
     cursor: pointer;
+    border-bottom: solid 2px #000000;
 }
 
 .menu-izquierda div img {
@@ -123,7 +126,8 @@ video {
     margin: 0%;
     padding: 0%;
 }
-.menu-izquierda div:hover { 
+
+.menu-izquierda div:hover {
     box-shadow: 3px 5px 5px 5px #00000044;
 }
 
@@ -187,10 +191,73 @@ video {
     left: 150%;
     height: 80%;
     width: 70%;
-    background: #ffffff;
     border-radius: 20px;
     box-shadow: 3px 5px 5px 5px #00000044;
-} 
+    align-items: center;
+    background: #ffffff;
+}
+
+/* Form de propietario y mascota */
+
+.FormPropietario {
+    display: none;
+}
+
+.FromMascota {
+    display: none;
+}
+
+/* registro de propietario */
+
+.RegPropietario {
+    position: relative;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 5%;
+    border-radius: 20px;
+    border: solid 1px #F0F0F0;
+    font-family: "Roboto-Regular";
+    text-align: center;
+    cursor: pointer;
+}
+
+.RegPropietario p{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.RegPropietario:hover {
+    box-shadow: 3px 5px 5px 5px #00000044; 
+}
+
+/* registro de mascota */
+
+.RegMascota {
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 5%;
+    border-radius: 20px;
+    border: solid 1px #F0F0F0;
+    font-family: "Roboto-Regular";
+    text-align: center;
+    cursor: pointer;
+}
+
+.RegMascota p{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.RegMascota:hover {
+    box-shadow: 3px 5px 5px 5px #00000044;
+}
 
 /* titulo */
 
@@ -213,13 +280,13 @@ video {
     text-align: center;
 }
 
-.contendor-titulo p{
+.contendor-titulo p {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* cerrar */
+/* cerrar registro */
 
 .cerrarRegistroP {
     position: absolute;
@@ -229,13 +296,25 @@ video {
     cursor: pointer;
 }
 
+/* volver*/
+
+.volver01 {
+    position: absolute;
+    top: 0%;
+    left: 96%;
+    width: 3%;
+    cursor: pointer;
+    z-index: 30;
+}
+
 /* Propietario*/
 
-.registro-propietario{
+.registro-propietario {
     position: absolute;
     top: 15%;
     width: 100%;
     text-align: center;
+    background: #ffffff;
 }
 
 /* titulo de los imputs*/
@@ -257,7 +336,7 @@ video {
     height: 30px;
     width: 20%;
     border-radius: 10px;
-    border: solid 1px #F0F0F0;    
+    border: solid 1px #F0F0F0;
 }
 
 /* Mascota */
@@ -267,6 +346,7 @@ video {
     top: 55%;
     width: 100%;
     text-align: center;
+    background: #ffffff;
 }
 
 .registro-mascota input {
@@ -277,7 +357,7 @@ video {
     height: 30px;
     width: 20%;
     border-radius: 10px;
-    border: solid 1px #F0F0F0;     
+    border: solid 1px #F0F0F0;
 }
 
 .registro-mascota p {
@@ -286,6 +366,38 @@ video {
     font-family: "Roboto-Regular";
     text-align: center;
 }
+
+/* Registro de mascota sola */
+
+.registro-mascota02 {
+    position: absolute;
+    top: 10%;
+    height: 80%;
+    width: 100%;
+    text-align: center;
+    background: #ffffff;
+}
+
+.registro-mascota02 input {
+    display: inline-block;
+    margin: 1%;
+    margin-top: 2%;
+    padding-left: 10px;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+.registro-mascota02 p {
+    position: relative;
+    top: 0%;
+    margin-top: 3%;
+    font-family: "Roboto-Regular";
+    text-align: center;
+}
+
+/* Consultar Propietario */
 
 .RegistroProp {
     position: absolute;
@@ -300,5 +412,170 @@ video {
     text-align: center;
     margin-top: 3%;
     border-radius: 10px;
+    border: solid 1px #36A420;
+}
+
+.consultarID-mascota {
+    background: #166FE5;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #166FE5;
+}
+
+/* registro */
+
+.RegistroProp02 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #36A420;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 3%;
+    border-radius: 10px;
     border: solid 1px #F0F0F0;
+}
+
+/* Historia Clinica */
+
+.contenedor-historia {
+    position: fixed;
+    top: 14%;
+    left: 150%;
+    height: 80%;
+    width: 70%;
+    border-radius: 20px;
+    box-shadow: 3px 5px 5px 5px #00000044;
+    align-items: center;
+    background: #ffffff;
+    z-index: 70;
+}
+
+/* titulo */
+
+.contendor-titulo-historia {
+    position: absolute;
+    top: 0%;
+    margin: 0%;
+    padding: 0%;
+    width: 99.9%;
+    height: 8%;
+    background: #9DCFFF;
+    border-color: #9DCFFF;
+    border-width: 1px;
+    border-style: solid;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: rgb(0, 0, 0);
+    font-family: 'Roboto-Black';
+    font-size: 1.5vw;
+    text-align: center;    
+}
+
+.contendor-titulo-historia p {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* cerrar registro */
+
+.cerrarHistoria {
+    position: absolute;
+    top: 1%;
+    left: 96%;
+    width: 3%;
+    cursor: pointer;
+}
+
+.buscarID {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    text-align: center;
+    border-radius: 20px;
+    border: solid 1px #F0F0F0;
+    height: 5%;
+    width: 40%;
+    font-family: "Roboto-Regular";
+}
+
+.consultarID {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+    text-align: center;
+    border-radius: 20px;
+    border: solid 1px #166FE5;
+    height: 5%;
+    width: 30%;
+    cursor: pointer;
+    background: #166FE5;
+    color: #ffffff;
+    font-family: "Roboto-Regular";
+}
+
+.tablaHistoria {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 30%;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
+    font-family: "Roboto-Regular";
+    border: solid 1px #F0F0F0;
+}
+
+.tituloTablaH {
+    font-family: 'Roboto-Black';
+    top: 0%;
+}
+
+td img {
+    position: relative;
+    width: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Tamaños de las columnas */
+
+.columnaID {
+    width: 15%;
+}
+
+.columnaPropietario{
+    width: 40%;
+}
+
+.columnaMascota{
+    width: 35%;
+}
+.columnaCargar { 
+    width: 10%;
+}
+ 
+thead {
+    background:#9DCFFF;
+    font-family: 'Roboto-Black';
+}
+tr:nth-child(even){
+    background: #ddd;
 }
