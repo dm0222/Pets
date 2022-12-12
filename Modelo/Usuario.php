@@ -40,7 +40,6 @@
             $conexion=new Conexion;
             $conecta = $conexion->conexion();
             $insertar="INSERT INTO cuenta VALUES (NULL,'$Documento','$Email','$contrasena',12, 11)";
-            echo $insertar;
             $resultado=mysqli_query($conecta,$insertar);
             echo "
                 <script>

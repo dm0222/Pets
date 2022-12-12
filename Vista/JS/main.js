@@ -10,27 +10,6 @@ function ImgAleatoria() {
             break;
     }
 }
-
-$(document).ready(function(){
-    //$('#FK_CodEspecie').val(5);
-    recargarLista();
-
-    $('#FK_CodEspecie').change(function(){
-        recargarLista();
-    });
-})
-
-function recargarLista(){
-    $.ajax({
-        type:"POST",
-        url:"http://localhost/Pets/Controlador/listar.php",
-        data:"FK_CodEspecie=" + $('#FK_CodEspecie').val(),
-        success:function(r){
-            $('#selectraza').html(r);
-        }
-    });
-}
-
 /* formulario de registro */
 
 let validarMenuD = 0

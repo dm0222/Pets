@@ -10,13 +10,7 @@ if(isset($_SESSION['timeout'])){
 }
 $_SESSION['timeout'] = time();
 require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/listar.php");
-
 if($_SESSION['Correo']){
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,7 +21,7 @@ if($_SESSION['Correo']){
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
     <link rel="stylesheet" href="http://localhost/Pets/Vista/css/DeskStyle.css">
-    <link rel="icon" href="../Img/escritorio.png" />
+    <link rel="icon" href="http://localhost/Pets/Img/escritorio.png" />
     <title>Desk</title>
 </head>
 
@@ -79,34 +73,31 @@ if($_SESSION['Correo']){
                 <img class="cerrarRegistroP" src="../Img/cerrar.png">
                 <div class="registro-propietario">
                     <p>Datos del Propietario</p>
-                    <input id="name" name="dni" type="text" class="form-input" placeholder="Identificación">
-                    <input id="name" name="name" type="text" class="form-input" placeholder="Primer Nombre">
+                    <input id="name" name="dni" type="text" class="form-input" placeholder="Identificación" required>
+                    <input id="name" name="name" type="text" class="form-input" placeholder="Primer Nombre" required>
                     <input id="name" name="name" type="text" class="form-input" placeholder="Segundo Nombre">
-                    <input id="name" name="surname" type="text" class="form-input" placeholder="Primer Apellido">
+                    <input id="name" name="surname" type="text" class="form-input" placeholder="Primer Apellido" required>
                     <input id="name" name="surname" type="text" class="form-input" placeholder="Segundo Apellido">
-                    <input id="name" name="phone" type="text" class="form-input" placeholder="Celular">
+                    <input id="name" name="phone" type="text" class="form-input" placeholder="Celular" required>
                     <input id="name" name="phone" type="text" class="form-input" placeholder="Telefono">
-                    <input id="name" name="address" type="text" class="form-input" placeholder="Dirección">
-                    <input id="name" name="email" type="text" class="form-input" placeholder="Correo electornico">
+                    <input id="name" name="address" type="text" class="form-input" placeholder="Dirección" required>
+                    <input id="name" name="email" type="text" class="form-input" placeholder="Correo electornico" required>
                 </div>
                 <div class="registro-mascota">
                     <p>Datos del Mascota</p>
-                    <input id="name" name="name" type="text" class="form-input" placeholder="Nombre">
-                    <input id="name" name="surname" type="number" class="form-input" placeholder="Edad">
-                    <input id="name" name="dni" type="text" class="form-input" placeholder="Genero">
-                    <select name="FK_CodEspecie" id="FK_CodEspecie" type="text" class="form-input" placeholder="Especie">
+                    <input id="name" name="name" type="text" class="form-input" placeholder="Nombre" required>
+                    <input id="name" name="surname" type="number" class="form-input" placeholder="Edad" required>
+                    <input id="name" name="dni" type="text" class="form-input" placeholder="Genero" required>
+                    <input id="Especie" name="FK_Especie" type="text" class="form-input" placeholder="Especie" list="SelectEspecie" required>
+                    <datalist id="SelectEspecie" name="SelectEspecie">
                     <?php
                         ListarEspecie();
                     ?>
-                    <input id="name" name="address" type="text" class="form-input" placeholder="Especie">
-                    <select name="FK_CodRaza" id="selectraza" type="text" class="form-input" placeholder="Especie">
-
-                    <?php
-                        ListarRaza();
-                    ?>
-                    <input id="name" name="phone" type="text" class="form-input" placeholder="Raza">
-                    <input id="name" name="email" type="text" class="form-input" placeholder="Color">
-                    <input id="name" name="email" type="text" class="form-input" placeholder="Observaciones">
+                    </datalist>
+                    <input name="FK_Raza" type="text" class="form-input" placeholder="Raza" list="SelectRaza" required>
+                    <datalist id="SelectRaza"></datalist>
+                    <input id="name" name="email" type="text" class="form-input" placeholder="Color" required>
+                    <input id="name" name="email" type="text" class="form-input" placeholder="Observaciones" required>
                 </div>
                 <input type="submit" name="AgregarPropMasc" class="RegistroProp" value="Registrar">
             </form>
@@ -116,6 +107,7 @@ if($_SESSION['Correo']){
 
 
     </div>
+     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
@@ -123,9 +115,29 @@ if($_SESSION['Correo']){
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
     <script src="http://localhost/Pets/Vista/js/jquery-3.6.1.min.js"></script>
     <script src="http://localhost/Pets/Vista/js/main.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#Especie').val();
+            recargarLista();
 
+            $('#Especie').change(function(){
+                recargarLista();
+            });
+        })
+    </script>
+    <script>
+        function recargarLista(){
+            $.ajax({
+                type:"POST",
+                url:"http://localhost/Pets/Controlador/listar.php",
+                data:"Nom_Especie=" + $('#Especie').val(),
+                success:function(r){
+                    $('#SelectRaza').html(r);
+                }
+            });
+        }
+    </script>  
 </body>
-
 </html>
 <?php
 }
