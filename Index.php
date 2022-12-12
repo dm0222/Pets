@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
     <link rel="stylesheet" href="./sw/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="./Vista/css/style.css">
-    <link rel="icon" href="./vista/img/vet.png" />
+    <link rel="icon" href="./Vista/Img/Iconos/icon.png" />
     <title>Pets ++</title>
 </head>
 
@@ -62,7 +62,7 @@
         </div>
         <div class="contenedor-registro">
             <form action="" method="POST">
-                <img class="cerrar" src="./Vista/Img/cerrar.png">
+                <img class="cerrar" src="./Vista/Img/Iconos/cerrar.png">
                 <div class="Inputs-izquierda">
                     <div class="input-user">
                         <input id="name" name="First-name" type="text" class="form-input" placeholder="Primer Nombre">

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
     <link rel="stylesheet" href="../CSS/DeskStyle.css">
-    <link rel="icon" href="../Img/escritorio.png" />
+    <link rel="icon" href="../Img/Iconos/escritorio.png" />
 
     <title>Desk</title>
 </head>
@@ -24,42 +24,52 @@
 
     <div class="contenedor-general">
 
-        <!-- Muenus -->
+        <!-- Menus -->
 
         <div class="menu-superior">
             <p>Pets ++</p>
             <img class="icon01">
         </div>
+
+        <!-- Menu izquierda  -->
         <div class="menu-izquierda">
             <div class="RegistroPropietario">
-                <img src="../Img/usuario01.png ">
+                <img src="../Img/Iconos/usuario01.png ">
                 <p>Registro de Usuario</p>
             </div>
-            <div>
-                <img src="../Img/historiaMedica.png ">
+            <div class="historiaClinica01">
+                <img src="../Img/Iconos/historiaMedica.png ">
                 <p>Historia Clinica</p>
             </div>
         </div>
+        <!-- Menu derecha  -->
         <div class="menu-central">
             <div class="sub-menu01 registroP">
-                <img src="../Img/usuario01.png ">
+                <img src="../Img/Iconos/usuario01.png ">
                 <p>Registro de Usuario</p>
             </div>
             <div class="sub-menu01 historiaC">
-                <img src="../Img/historiaMedica.png ">
+                <img src="../Img/Iconos/historiaMedica.png ">
                 <p>Historia Clinica</p>
             </div>
         </div>
 
-        <!-- Formatos -->
+        <!-- Formatos de registro -->
 
         <div class="contenedor-registro">
-            <form action="">
-                <div class="contendor-titulo">
-                    <p>Registro</p>
-                </div>
-                <img class="cerrarRegistroP" src="../Img/cerrar.png">
+            <div class="contendor-titulo">
+                <p>Registro</p>
+            </div>
+            <img class="cerrarRegistroP" src="../Img/Iconos/cerrar.png">
+            <div class="RegPropietario">
+                <p>Registrar Propietario y Mascota</p>
+            </div>
+            <div class="RegMascota">
+                <p>Registrar Mascota</p>
+            </div>
+            <form action="" class="FormPropietario">
                 <div class="registro-propietario">
+                    <img class="volver01" src="../Img/Iconos/volver.png">
                     <p>Datos del Propietario</p>
                     <input id="name" name="dni" type="text" class="form-input" placeholder="Identificación">
                     <input id="name" name="name" type="text" class="form-input" placeholder="Primer Nombre">
@@ -83,11 +93,68 @@
                 </div>
                 <input type="submit" name="AgregarPropMasc" class="RegistroProp" value="Registrar">
             </form>
+            <form action="" class="FromMascota">
+                <div class="registro-mascota02">
+                    <img class="volver01" src="../Img/Iconos/volver.png">
+                    <p>Consultar Propietario</p>
+                    <input type="text" name="" id="" placeholder="Buscar por ID" class="buscarID-mascota">
+                    <input  name="" type="submit" id="" value="Consultar" class="consultarID-mascota">
+                    <p>Datos del Mascota</p>
+                    <input id="name" name="name" type="text" class="form-input" placeholder="Nombre">
+                    <input id="name" name="surname" type="number" class="form-input" placeholder="Edad">
+                    <input id="name" name="dni" type="text" class="form-input" placeholder="Genero">
+                    <input id="name" name="address" type="text" class="form-input" placeholder="Especie">
+                    <input id="name" name="phone" type="text" class="form-input" placeholder="Raza">
+                    <input id="name" name="email" type="text" class="form-input" placeholder="Color">
+                    <input id="name" name="email" type="text" class="form-input" placeholder="Observaciones">
+                </div>
+                <input type="submit" name="AgregarPropMasc" class="RegistroProp02" value="Registrar">
+            </form>
         </div>
-
     </div>
 
+    <!-- Historia Clinica -->
 
+    <div class="contenedor-historia">
+        <form action="" class="">
+            <div class="contendor-titulo-historia">
+                <p>Historia Clinica</p>
+            </div>
+            <img class="cerrarHistoria" src="../Img/Iconos/cerrar.png">
+            <input type="text" name="" id="" placeholder="Buscar por ID" class="buscarID">
+            <input type="submit" name="" id="" value="Consultar ID" class="consultarID">
+            <table class="tablaHistoria">
+                <thead>
+                    <tr>
+                        <th class="columnaID">ID</th>
+                        <th class="columnaPropietario">Nombre del Propietario</th>
+                        <th class="columnaMascota">Nombre Mascota</th>
+                        <th class="columnaCargar">Cargar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>123</td>
+                        <td>Pedro Martines</td>
+                        <td>Chato</td>
+                        <td><a href="#"> <img   src="../Img/Iconos/comprobado.png" alt=""></a></td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>Pedro Martines</td>
+                        <td>Chato</td>
+                        <td><a href="#"> <img   src="../Img/Iconos/comprobado.png" alt=""></a></td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>Pedro Martines</td>
+                        <td>Chato</td>
+                        <td><a href="#"> <img   src="../Img/Iconos/comprobado.png" alt=""></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script
