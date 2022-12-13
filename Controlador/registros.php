@@ -1,5 +1,4 @@
 <?php
-
     require_once ("$_SERVER[DOCUMENT_ROOT]/Pets/Modelo/Persona.php");
     require_once ("$_SERVER[DOCUMENT_ROOT]/Pets/Modelo/Usuario.php");
     require_once ("$_SERVER[DOCUMENT_ROOT]/Pets/Modelo/Mascota.php");
@@ -7,7 +6,6 @@
         $Obj_Usuario = new Usuaraio;
         $Obj_Persona = new Persona;
         $Obj_Mascota = new Mascota;
-
 
     //Funcion encargada de hacer el POST para agregr 'Medico'
     if(isset($_POST['AgregarMedico'])){
@@ -26,13 +24,13 @@
                                             $_POST['Telefono'],
                                             2
                                         );
-
             $Obj_Usuario->ValidarRegistro(
                                             $_POST['Documento'],
                                             $_POST['Correo'],
                                             $_POST['Contrasena']
                                         );
-        } 
+        }
+    exit; 
     }
 
     //Funcion encargada de hacer el POST para agregr 'Administrador'
@@ -52,13 +50,13 @@
                                             $_POST['Telefono'],
                                             1
                                         );
-
             $Obj_Usuario->ValidarRegistro(
                                             $_POST['Documento'],
                                             $_POST['Correo'],
                                             $_POST['Contrasena']
                                         );
-        } 
+        }
+    exit; 
     }
 
     //Funcion encargada de hacer el POST para agregr 'Propietario y Mascota'
@@ -74,17 +72,19 @@
                                             $_POST['Telefono'],
                                             3
                                         );
-
+            $Obj_Mascota->AgregarEspecie($_POST['Especie']);
+            $Obj_Mascota->AgregarRaza($_POST['Raza'],$_POST['Especie']);
             $Obj_Mascota->AgregarMascota(
                                             $_POST['Documento'],
                                             $_POST['Nombre'],
                                             $_POST['Edad'],
                                             $_POST['Genero'],
-                                            $_POST['Raza'],
                                             $_POST['Especie'],
+                                            $_POST['Raza'],
                                             $_POST['Color'],
                                             $_POST['Observaciones']
                                         );
+        exit;
     }
 
     //Funcion encargada de hacer el POST para agregr 'Mascota'
@@ -94,12 +94,11 @@
                                         $_POST['Nombre'],
                                         $_POST['Edad'],
                                         $_POST['Genero'],
-                                        $_POST['Raza'],
                                         $_POST['Especie'],
+                                        $_POST['Raza'],
                                         $_POST['Color'],
                                         $_POST['Observaciones']
                                     );
-}
-
-
+    exit;
+    }
 ?>

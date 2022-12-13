@@ -61,13 +61,8 @@
             </div>
         </div>
         <div class="contenedor-registro">
-<<<<<<< HEAD
             <form action="./Controlador/registros.php" method="POST" name ="registro">
-                <img class="cerrar" src="./Vista/Img/cerrar.png">
-=======
-            <form action="" method="POST">
                 <img class="cerrar" src="./Vista/Img/Iconos/cerrar.png">
->>>>>>> frontend
                 <div class="Inputs-izquierda">
                     <div class="input-user">
                         <input id="Documento" name="Documento" type="text" class="form-input"

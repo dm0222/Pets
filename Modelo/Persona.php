@@ -32,6 +32,7 @@
                 break;
                 case 3: //Propietario
                     $queyvalidar = "SELECT * FROM propietario WHERE Documento = '$Documento'";
+                    echo $queyvalidar;
                     $validar = mysqli_query($Conexion, $queyvalidar);
                     if (mysqli_fetch_array($validar)){
                         echo "
@@ -50,6 +51,7 @@
                     }
                     else{
                         $queryprop ="INSERT INTO propietario VALUES ('$Documento','$PrimerNombre','$SegundoNombre','$PrimerApellido','$SegundoApellido','$Direccion','$Email','$Celular','$Telefono')";
+                        echo $queryprop;
                         mysqli_query($Conexion,$queryprop);
                         echo "
                             <script>
