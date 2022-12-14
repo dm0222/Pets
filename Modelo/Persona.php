@@ -32,7 +32,6 @@
                 break;
                 case 3: //Propietario
                     $queyvalidar = "SELECT * FROM propietario WHERE Documento = '$Documento'";
-                    echo $queyvalidar;
                     $validar = mysqli_query($Conexion, $queyvalidar);
                     if (mysqli_fetch_array($validar)){
                         echo "
@@ -43,7 +42,7 @@
                                     text:'El cliente ya se encuentra registrado'
                                 }).then((result) => {
                                     if(result.isConfirmed){
-                                        window.location = '../index.php';
+                                        window.location = '../Vista/Medico/DeskMedico.php';
                                     }
                                 });   
                             </script>
@@ -51,7 +50,6 @@
                     }
                     else{
                         $queryprop ="INSERT INTO propietario VALUES ('$Documento','$PrimerNombre','$SegundoNombre','$PrimerApellido','$SegundoApellido','$Direccion','$Email','$Celular','$Telefono')";
-                        echo $queryprop;
                         mysqli_query($Conexion,$queryprop);
                         echo "
                             <script>
@@ -61,7 +59,7 @@
                                     text:'El cliente a sido registrado correctamente'
                                 }).then((result) => {
                                     if(result.isConfirmed){
-                                        window.location = '../index.php';
+                                        window.location = '../Vista/Medico/DeskMedico.php';
                                     }
                                 });   
                             </script>
@@ -70,6 +68,40 @@
                 break;
             }
         }
+
+            public function BuscarPropietario($Documento){
+                $Obj_Conexion = new Conexion;
+                $Conexion= $Obj_Conexion->conexion();
+                $queybuscar = "SELECT * FROM propietario WHERE Documento = '$Documento'";
+                $buscar = mysqli_query($Conexion, $queybuscar);
+                if(mysqli_fetch_array($buscar)){
+                    echo "
+                    <script>
+                        Swal.fire({
+                            icon:'success',
+                            title:'Bienvenido',
+                            text:'Propietario encontrado'
+                        });  
+                    </script>
+                    ";
+                    header('Location: ../Medico/DeskMedico.php?Documento='.$Documento.''); 
+                }
+                else{
+                    echo "
+                    <script>
+                        Swal.fire({
+                            icon:'error',
+                            title:'ERROR!',
+                            text:'El cliente no se encuentra registrado en la base de datos'
+                        }).then((result) => {
+                            if(result.isConfirmed){
+                                window.location = '../Medico/DeskMedico.php';
+                            }
+                        });   
+                    </script>
+                "; 
+                }
+            }
     }
 
 

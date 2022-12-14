@@ -2,28 +2,24 @@
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Conexion/Conexion.php");
     class Mascota{
     
-        public function AgregarMascota($Documento,$Nombre,$Edad,$Genero,$Raza,$Especie,$Color,$Observaciones){
+        public function AgregarMascota($Documento,$Nombre,$Edad,$Genero,$Especie,$Raza,$Color,$Observaciones){
             $Obj_Conexion = new Conexion;
             $Conexion = $Obj_Conexion->conexion();
 
             $BuscarEsp = "SELECT Codigo FROM especie WHERE nombre_especie = '$Especie'";
+        echo $BuscarEsp;
             $query = mysqli_query($Conexion,$BuscarEsp);
             $row = mysqli_fetch_row($query);
             $FK_CodEspecie = $row[0];
 
             $BuscarRaza = "SELECT Codigo FROM raza WHERE FK_CodEspecie = '$FK_CodEspecie' AND nombre_raza = '$Raza'";
+        echo $BuscarRaza;
             $query = mysqli_query($Conexion,$BuscarRaza);
             $row = mysqli_fetch_row($query);
             $FK_CodRaza = $row[0];
 
-            $insertar = "INSERT INTO mascota(FK_CodPropietatio,
-                                            Nombre,
-                                            Edad,
-                                            Genero,
-                                            FK_CodRaza,
-                                            FK_CodEspecie,
-                                            Color,
-                                            Observaciones) VALUES(
+            $insertar = "INSERT INTO mascota VALUES(
+                                                NULL,
                                                 '$Documento',
                                                 '$Nombre',
                                                 '$Edad',
@@ -33,9 +29,21 @@
                                                 '$Color',
                                                 '$Observaciones'
                                             )";
-
             $query = mysqli_query($Conexion, $insertar);
-            echo $insertar;
+            echo "
+                <script>
+                    Swal.fire({
+                        icon:'success',
+                        title:'Bienvenido',
+                        text:'La Mascota a sido registrada con Exito'
+                    }).then((result) => {
+                        if(result.isConfirmed){
+                            window.location = '../Vista/Medico/DeskMedico.php';
+                        }
+                    });   
+                </script>
+            ";
+            
         }
 
         public function EditarMascota($Codigo,$Documento,$Nombre,$Edad,$Genero,$Raza,$Especie,$Color,$Observaciones){

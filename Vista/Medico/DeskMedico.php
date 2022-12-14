@@ -9,8 +9,14 @@ if (isset($_SESSION['timeout'])) {
     }
 }
 $_SESSION['timeout'] = time();
-require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/listar.php");
+
 if ($_SESSION['Correo']) {
+
+    require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/listar.php");
+    require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/buscar.php");
+    require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/registros.php");
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,7 +31,7 @@ if ($_SESSION['Correo']) {
     <title>Desk</title>
 </head>
 
-<body onload="ImgAleatoria ()">
+<body onload="ImgAleatoria()">
     <!-- Video - background - inicio -->
 
     <!-- <div class="video-background">
@@ -81,7 +87,7 @@ if ($_SESSION['Correo']) {
             </div>
 
             <!--Formulario para agregar Propietario y Mascota-->
-            <form action="http://localhost/Pets/Controlador/registros.php" class="FormPropietario">
+            <form action="../../Controlador/registros.php" method="POST" class="FormPropietario">
                 <div class="contendor-titulo">
                     <p>Registro</p>
                 </div>
@@ -89,12 +95,15 @@ if ($_SESSION['Correo']) {
                 <div class="registro-propietario">
                     <img class="volver01" src="../Img/Iconos/volver.png">
                     <p>Datos del Propietario</p>
-                    <input id="name" name="Documento" type="text" class="form-input" placeholder="Identificación" required>
-                    <input id="name" name="PrimerNombre" type="text" class="form-input" placeholder="Primer Nombre" required>
+                    <input id="name" name="Documento" type="text" class="form-input" placeholder="Identificación"
+                        required>
+                    <input id="name" name="PrimerNombre" type="text" class="form-input" placeholder="Primer Nombre"
+                        required>
                     <input id="name" name="SegundoNombre" type="text" class="form-input" placeholder="Segundo Nombre">
                     <input id="name" name="PrimerApellido" type="text" class="form-input" placeholder="Primer Apellido"
                         required>
-                    <input id="name" name="SegundoApellido" type="text" class="form-input" placeholder="Segundo Apellido">
+                    <input id="name" name="SegundoApellido" type="text" class="form-input"
+                        placeholder="Segundo Apellido">
                     <input id="name" name="Direccion" type="text" class="form-input" placeholder="Dirección" required>
                     <input id="name" name="Correo" type="text" class="form-input" placeholder="Correo electornico"
                         required>
@@ -109,8 +118,8 @@ if ($_SESSION['Correo']) {
                     <input id="Especie" name="Especie" type="text" class="form-input" placeholder="Especie"
                         list="SelectEspecie" required>
                     <datalist id="SelectEspecie" name="SelectEspecie">
-                    <?php
-                        ListarEspecie();
+                        <?php
+    ListarEspecie();
                     ?>
                     </datalist>
                     <input name="Raza" type="text" class="form-input" placeholder="Raza" list="SelectRaza" required>
@@ -118,17 +127,24 @@ if ($_SESSION['Correo']) {
                     </datalist>
                     <input id="name" name="Color" type="text" class="form-input" placeholder="Color" required>
                     <input id="name" name="Observaciones" type="text" class="form-input" placeholder="Observaciones" required>
+                    <input type="hidden" name="DocumentoMed" class="buscarID-mascota" value="<?php echo BuscarMedico($_SESSION['Correo']); ?>">
                 </div>
                 <input type="submit" name="AgregarPropMasc" class="RegistroProp" value="Registrar">
             </form>
 
             <!--Formulario para agregar solo Mascota-->
-            <form action="../../Controlador/registros.php" class="FromMascota">
-                <div class="registro-mascota02">
-                    <img class="volver01" src="../Img/Iconos/volver.png">
-                    <p>Consultar Propietario</p>
-                    <input type="text" name="Documento" id="" placeholder="Buscar por ID" class="buscarID-mascota">
-                    <input name="" type="submit" id="" value="Consultar" class="consultarID-mascota">
+            <div class="FromMascota">
+                <form method="post">
+                    <div class="registro-mascota02">
+                        <img class="volver01" src="../Img/Iconos/volver.png">
+                        <p id="FromMascota">Consultar Propietario</p>
+                        <input type="text" name="Documento" id="" placeholder="Buscar por ID" class="buscarID-mascota" required>
+                        <input type="submit" name="BuscarProp" id="" value="Consultar" class="consultarID-mascota">
+                </form>
+                <?php
+            if (isset($_GET['Documento'])) {
+                ?>
+                <form action="../../Controlador/registros.php" method="POST">
                     <p>Datos del Mascota</p>
                     <input id="name" name="Nombre" type="text" class="form-input" placeholder="Nombre">
                     <input id="name" name="Edad" type="number" class="form-input" placeholder="Edad">
@@ -136,9 +152,9 @@ if ($_SESSION['Correo']) {
                     <input id="Especie02" name="Especie" type="text" class="form-input" placeholder="Especie"
                         list="SelectEspecie02" required>
                     <datalist id="SelectEspecie02" name="SelectEspecie">
-                    <?php
-                        ListarEspecie();
-                    ?>
+                        <?php
+                            ListarEspecie();
+                        ?>
                     </datalist>
                     <input name="Raza" type="text" class="form-input" placeholder="Raza" list="SelectRaza02" required>
                     <datalist id="SelectRaza02">
@@ -146,10 +162,16 @@ if ($_SESSION['Correo']) {
                     </datalist>
                     <input id="name" name="Color" type="text" class="form-input" placeholder="Color">
                     <input id="name" name="Observaciones" type="text" class="form-input" placeholder="Observaciones">
-                </div>
+                    <input type="hidden" name="Documento" class="buscarID-mascota" value="<?php echo $_GET['Documento'] ?>">
+                    <input type="hidden" name="DocumentoMed" class="buscarID-mascota" value="<?php echo BuscarMedico($_SESSION['Correo']); ?>">
+            </div>
                 <input type="submit" name="AgregarMascota" class="RegistroProp02" value="Registrar">
-            </form>
+                </form>
+                <?php
+            }
+                ?>
         </div>
+    </div>
     </div>
 
     <!-- Historia Clinica -->
@@ -160,40 +182,41 @@ if ($_SESSION['Correo']) {
                 <p>Historia Clinica</p>
             </div>
             <img class="cerrarHistoria" src="../Img/Iconos/cerrar.png">
-            <input type="text" name="" id="" placeholder="Buscar por ID" class="buscarID">
-            <input type="submit" name="" id="" value="Consultar ID" class="consultarID">
-            <table class="tablaHistoria">
-                <thead>
-                    <tr>
-                        <th class="columnaID">ID</th>
-                        <th class="columnaPropietario">Nombre del Propietario</th>
-                        <th class="columnaMascota">Nombre Mascota</th>
-                        <th class="columnaCargar">Cargar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>123</td>
-                        <td>Pedro Martines</td>
-                        <td>Chato</td>
-                        <td><a href="#"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td>123</td>
-                        <td>Pedro Martines</td>
-                        <td>Chato</td>
-                        <td><a href="#"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
-                    </tr>
-                    <tr>
-                        <td>123</td>
-                        <td>Pedro Martines</td>
-                        <td>Chato</td>
-                        <td><a href="#"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
-                    </tr>
-                </tbody>
-            </table>
-
+            <input type="text" name="Documento" id="" placeholder="Documento Propietario" class="buscarID">
+            <input type="submit" name="BuscarHistClin" id="" value="Consultar" class="consultarID">
         </form>
+        <table class="tablaHistoria">
+            <thead>
+                <tr>
+                    <th class="columnaID">ID</th>
+                    <th class="columnaPropietario">Nombre del Propietario</th>
+                    <th class="columnaMascota">Nombre Mascota</th>
+                    <th class="columnaCargar">Cargar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>123</td>
+                    <td>Pedro Martines</td>
+                    <td>Chato</td>
+                    <td><a href="#"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
+                </tr>
+                <tr>
+                    <td>123</td>
+                    <td>Pedro Martines</td>
+                    <td>Chato</td>
+                    <td><a href="#"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
+                </tr>
+                <tr>
+                    <td>123</td>
+                    <td>Pedro Martines</td>
+                    <td>Chato</td>
+                    <td><a href="#"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
+                </tr>
+            </tbody>
+        </table>
+
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>

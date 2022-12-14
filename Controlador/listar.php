@@ -11,6 +11,23 @@
                 <option value='$row[1]'></option>";
             } while ( $row = mysqli_fetch_row($resultado));
     }
+    
+
+    function BuscarMedico($Correo){
+        $Conexion = new Conexion;
+        $query = "SELECT Documento FROM medico WHERE email = '$Correo'";
+        $resultado = mysqli_query($Conexion->conexion(),$query);
+        $row = mysqli_fetch_row($resultado);
+        $Doc_Medico = $row[0];
+        
+        return $Doc_Medico;
+    }
+
+    function ListarHistClic(){
+
+    }
+
+
 
     if(isset($_POST['Nom_Especie'])){
             $Especie = $_POST['Nom_Especie'];

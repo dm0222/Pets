@@ -38,7 +38,7 @@
         </div>
         <div class="contenedor-Derecha">
             <div class="sub-contenedor-Derecha">
-                <form action="./Controlador/validacion.php" method="post">
+                <form action="./Controlador/validacion.php" method="POST">
                     <div class="input-user">
                         <input id="name" name="Correo" type="text" class="form-input"
                             placeholder="Numero de Identificación ">
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="contenedor-registro">
-            <form action="./Controlador/registros.php" method="POST" name ="registro">
+            <form action="./Controlador/registros.php" method="POST">
                 <img class="cerrar" src="./Vista/Img/Iconos/cerrar.png">
                 <div class="Inputs-izquierda">
                     <div class="input-user">
@@ -102,7 +102,7 @@
                         <input id="RepContrasena" name="RepContrasena" type="password" class="form-input" placeholder="Confirmar Contraseña" required>
                     </div>
                 </div>
-                <input type="submit" name="AgregarMedico" class="submit03" value="Registrarte" >
+                <input type="submit" name="AgregarMedico" class="submit03" value="Registrar" >
             </form>
         </div>
     </div>
