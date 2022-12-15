@@ -118,8 +118,8 @@ if ($_SESSION['Correo']) {
                     <input id="Especie" name="Especie" type="text" class="form-input" placeholder="Especie"
                         list="SelectEspecie" required>
                     <datalist id="SelectEspecie" name="SelectEspecie">
-                        <?php
-    ListarEspecie();
+                    <?php
+                        ListarEspecie();
                     ?>
                     </datalist>
                     <input name="Raza" type="text" class="form-input" placeholder="Raza" list="SelectRaza" required>
@@ -175,6 +175,9 @@ if ($_SESSION['Correo']) {
     </div>
 
     <!-- Historia Clinica -->
+    <?php
+        $HistClic = ListarHistClic();
+    ?>
 
     <div class="contenedor-historia">
         <form action="" class="">
@@ -195,28 +198,22 @@ if ($_SESSION['Correo']) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>123</td>
-                    <td>Pedro Martines</td>
-                    <td>Chato</td>
-                    <td><a href="#"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
-                </tr>
-                <tr>
-                    <td>123</td>
-                    <td>Pedro Martines</td>
-                    <td>Chato</td>
-                    <td><a href="#"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
-                </tr>
-                <tr>
-                    <td>123</td>
-                    <td>Pedro Martines</td>
-                    <td>Chato</td>
-                    <td><a href="#"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
-                </tr>
+                <?php
+                    for($i=0;$i<count($HistClic);$i++){
+                        echo "
+                            <tr>
+                                <td>" . $HistClic[$i]['Codigo'] . "</td>
+                                <td>" . $HistClic[$i]['PrimerNombre'] . ' ' . $HistClic[$i]['PrimerApellido'] . "</td>
+                                <td>" . $HistClic[$i]['Nombre'] . "</td>
+                        ";
+                ?>
+                                <td><a href="DeskHistory.html?CodHc=<?php echo $HistClic[$i]['Codigo'] ?>"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
+                            </tr>
+                <?php
+                    }
+                ?>
             </tbody>
         </table>
-
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
