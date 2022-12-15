@@ -6,31 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
-    <link rel="stylesheet" href="../CSS/DeskHistoria.css">
+    <link rel="stylesheet" href="../css/DeskHistoria.css">
     <link rel="icon" href="../Img/Iconos/icon.png" />
 
     <title>Desk Pet</title>
 </head>
 
-<body onload="ImgAleatoria (), ImgBackgound()">
-
+<body>
     <!-- background -->
-
     <div class="img-background">
         <img class="imgBackground" alt="">
     </div>
-
     <!-- Contenedor General -->
-
     <div class="contenedor-general">
-
         <!-- Menu superior -->
-
         <div class="menu-superior">
             <p>Pets ++</p>
             <img class="icon01">
         </div>
-
         <!-- Menu izquierda  -->
         <div class="menu-izquierda">
             <div class="Agendar01">
@@ -160,8 +153,12 @@
         src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
-    <script src="../JS/jquery-3.6.1.min.js"></script>
-    <script src="../JS/main.js"></script>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        window.onload = ImgAleatoria();
+        window.onload = ImgBackgound();
+    </script>
 
 </body>
 
