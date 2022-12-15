@@ -7,82 +7,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
     <link rel="stylesheet" href="http://localhost/Pets/Vista/CSS/DeskStyle.css">
-    <link rel="icon" href="../Img/escritorio.png" />
+    <link rel="icon" href="../Img/Iconos/icon.png" />
 
-    <title>Desk</title>
+    <title>Desk Pet</title>
 </head>
-
-<body onload="ImgAleatoria()">
-
-    <!-- Video - background - inicio -->
-
-    <!-- <div class="video-background">
-        <video class="video-back" id="video" src="../Videos/Azul.mp4" muted autoplay loop playsinline></video>
-    </div> -->
-
+<body>
+    <!-- background -->
+    <div class="img-background">
+        <img class="imgBackground" alt="">
+    </div>
     <!-- Contenedor General -->
-
     <div class="contenedor-general">
-
-        <!-- Muenus -->
-
+        <!-- Menu superior -->
         <div class="menu-superior">
             <p>Pets ++</p>
             <img class="icon01">
         </div>
+        <!-- Menu izquierda  -->
         <div class="menu-izquierda">
-            <div class="RegistroPropietario">
-                <img src="../Img/usuario01.png ">
-                <p>Registro de Usuario</p>
+            <div class="Agendar01">
+                <img src="../Img/Iconos/agendarCita.png ">
+                <p>Agendar Cita Medica</p>
             </div>
-            <div>
-                <img src="../Img/historiaMedica.png ">
-                <p>Historia Clinica</p>
+            <div class="Cirugia01">
+                <img src="../Img/Iconos/cirugia.png ">
+                <p>Cirugia</p>
+            </div>
+            <div class="Cita01">
+                <img src="../Img/Iconos/citaMedica.png ">
+                <p>Cita Medica</p>
+            </div>
+            <div class="Examen01">
+                <img src="../Img/Iconos/examenes.png ">
+                <p>Examenes Medicos</p>
+            </div>
+            <div class="Formula01">
+                <img src="../Img/Iconos/formulaMedica.png ">
+                <p>Formula Medica</p>
+            </div>
+            <div class="Hospitalizacion01">
+                <img src="../Img/Iconos/hospitalización.png ">
+                <p>Hospitalización</p>
+            </div>
+            <div class="Remision01">
+                <img src="../Img/Iconos/remisión.png ">
+                <p>Remisión</p>
+            </div>
+            <div class="Vacunacion01">
+                <img src="../Img/Iconos/vacunación.png ">
+                <p>Vacunación</p>
             </div>
         </div>
+
+        <!-- Menu central  -->
         <div class="menu-central">
-            <div class="sub-menu01 registroP">
-                <img src="../Img/usuario01.png ">
-                <p>Registro de Usuario</p>
+            <div class="Agendar02">
+                <img src="../Img/Iconos/agendarCita.png ">
+                <p>Agendar Cita <br>Medica</p>
             </div>
-            <div class="sub-menu01 historiaC">
-                <img src="../Img/historiaMedica.png ">
-                <p>Historia Clinica</p>
+            <div class="Cirugia02">
+                <img src="../Img/Iconos/cirugia.png ">
+                <p>Cirugia</p>
+            </div>
+            <div class="Cita02">
+                <img src="../Img/Iconos/citaMedica.png ">
+                <p>Cita Medica</p>
+            </div>
+            <div class="Examen02">
+                <img src="../Img/Iconos/examenes.png ">
+                <p>Examenes Medicos</p>
+            </div>
+            <div class="Formula02">
+                <img src="../Img/Iconos/formulaMedica.png ">
+                <p>Formula Medica</p>
+            </div>
+            <div class="Hospitalizacion02">
+                <img src="../Img/Iconos/hospitalización.png ">
+                <p>Hospitalización</p>
+            </div>
+            <div class="Remision02">
+                <img src="../Img/Iconos/remisión.png ">
+                <p>Remisión</p>
+            </div>
+            <div class="Vacunacion02">
+                <img src="../Img/Iconos/vacunación.png ">
+                <p>Vacunación</p>
             </div>
         </div>
 
-        <!-- Formatos -->
+        <!-- Servicios  -->
 
-        <div class="contenedor-registro">
-            <form action="">
-                <div class="contendor-titulo">
-                    <p>Registro</p>
-                </div>
-                <img class="cerrarRegistroP" src="../Img/cerrar.png">
-                <div class="registro-propietario">
-                    <p>Datos del Propietario</p>
-                    <input id="name" name="dni" type="text" class="form-input" placeholder="Identificación">
-                    <input id="name" name="name" type="text" class="form-input" placeholder="Primer Nombre">
-                    <input id="name" name="name" type="text" class="form-input" placeholder="Segundo Nombre">
-                    <input id="name" name="surname" type="text" class="form-input" placeholder="Primer Apellido">
-                    <input id="name" name="surname" type="text" class="form-input" placeholder="Segundo Apellido">
-                    <input id="name" name="phone" type="text" class="form-input" placeholder="Celular">
-                    <input id="name" name="phone" type="text" class="form-input" placeholder="Telefono">
-                    <input id="name" name="address" type="text" class="form-input" placeholder="Dirección">
-                    <input id="name" name="email" type="text" class="form-input" placeholder="Correo electornico">
-                </div>
-                <div class="registro-mascota">
-                    <p>Datos del Mascota</p>
-                    <input id="name" name="name" type="text" class="form-input" placeholder="Nombre">
-                    <input id="name" name="surname" type="number" class="form-input" placeholder="Edad">
-                    <input id="name" name="dni" type="text" class="form-input" placeholder="Genero">
-                    <input id="name" name="address" type="text" class="form-input" placeholder="Especie">
-                    <input id="name" name="phone" type="text" class="form-input" placeholder="Raza">
-                    <input id="name" name="email" type="text" class="form-input" placeholder="Color">
-                    <input id="name" name="email" type="text" class="form-input" placeholder="Observaciones">
-                </div>
-                <input type="submit" name="AgregarPropMasc" class="RegistroProp" value="Registrar">
-            </form>
+        <div class="servicio agendar">
+            <div class="contendor-titulo agendar-titulo">
+                <p>Agendar Cita Medica</p>
+            </div>
+            <img class="cerrarServicio" src="../Img/Iconos/cerrar.png">
+        </div>
+        <div class="servicio cirugia">
+            <div class="contendor-titulo cirugia-titulo">
+                <p>Cirugia</p>
+            </div>
+            <img class="cerrarServicio" src="../Img/Iconos/cerrar.png">
+        </div>
+        <div class="servicio cita">
+            <div class="contendor-titulo cita-titulo">
+                <p>Cita Medica</p>
+            </div>
+            <img class="cerrarServicio" src="../Img/Iconos/cerrar.png">
+        </div>
+        <div class="servicio examen">
+            <div class="contendor-titulo examen-titulo">
+                <p>Examen</p>
+            </div>
+            <img class="cerrarServicio" src="../Img/Iconos/cerrar.png">
+        </div>
+        <div class="servicio formula">
+            <div class="contendor-titulo formula-titulo">
+                <p>Formula Medica</p>
+            </div>
+            <img class="cerrarServicio" src="../Img/Iconos/cerrar.png">
+        </div>
+        <div class="servicio hospitalizacion">
+            <div class="contendor-titulo hospitalizacion-titulo">
+                <p>Hospitalización</p>
+            </div>
+            <img class="cerrarServicio" src="../Img/Iconos/cerrar.png">
+        </div>
+        <div class="servicio remision">
+            <div class="contendor-titulo remision-titulo">
+                <p>Remisión</p>
+            </div>
+            <img class="cerrarServicio" src="../Img/Iconos/cerrar.png">
+        </div>
+        <div class="servicio vacunacion">
+            <div class="contendor-titulo vacunacion-titulo">
+                <p>Vacunación</p>
+            </div>
+            <img class="cerrarServicio" src="../Img/Iconos/cerrar.png">
         </div>
 
     </div>
@@ -92,6 +153,10 @@
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
     <script src="../JS/jquery-3.6.1.min.js"></script>
     <script src="../JS/main.js"></script>
+    <script>
+        window.onload = ImgAleatoria();
+        window.onload = ImgBackgound();
+    </script>
 
 </body>
 
