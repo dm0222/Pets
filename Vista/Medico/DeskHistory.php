@@ -1,3 +1,26 @@
+<?php
+//session_start();
+$inn = 500;
+
+$Cod_Medico = $_GET['CodMedico'];
+$Cod_HistClinc = $_GET['CodHC'];
+$_SESSION['Correo'] = $_GET['Correo'];
+
+if (isset($_SESSION['timeout'])) {
+    $_session_life = time() - $_SESSION['timeout'];
+    if ($_session_life > $inn) {
+        session_destroy();
+        header("location: ../../Index.php");
+    }
+}
+$_SESSION['timeout'] = time();
+
+if ($_SESSION['Correo']) {
+    require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/listar.php");
+    require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/buscar.php");
+    require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/registros.php");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
-    <link rel="stylesheet" href="http://localhost/Pets/Vista/CSS/DeskStyle.css">
+    <link rel="stylesheet" href="http://localhost/Pets/Vista/CSS/DeskHistoria.css">
     <link rel="icon" href="../Img/Iconos/icon.png" />
 
     <title>Desk Pet</title>
@@ -95,8 +118,8 @@
             </div>
         </div>
 
+        
         <!-- Servicios  -->
-
         <div class="servicio agendar">
             <div class="contendor-titulo agendar-titulo">
                 <p>Agendar Cita Medica</p>
@@ -159,5 +182,22 @@
     </script>
 
 </body>
-
 </html>
+<?php
+} else {
+    $_SESSION['Correo'] = NULL;
+    echo "
+        <script>
+            Swal.fire({
+            icon : 'error',
+            title : 'ERROR!!',
+            text :  ' Su sesion a caducado'
+            }).then((result) => {
+                if(result.isConfirmed){
+                window.location='../../index.php';
+                }
+            }); 
+        </script>
+    ";
+}
+?>

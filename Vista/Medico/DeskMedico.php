@@ -26,17 +26,17 @@ if ($_SESSION['Correo']) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
-    <link rel="stylesheet" href="http://localhost/Pets/Vista/css/DeskStyle.css">
+    <link rel="stylesheet" href="http://localhost/Pets/Vista/css/DeskMedico.css">
     <link rel="icon" href="http://localhost/Pets/Img/Iconos/escritorio.png" />
     <title>Desk</title>
 </head>
 
-<body onload="ImgAleatoria()">
-    <!-- Video - background - inicio -->
+<body>
+     <!-- background -->
 
-    <!-- <div class="video-background">
-        <video class="video-back" id="video" src="../Videos/Azul.mp4" muted autoplay loop playsinline></video>
-    </div> -->
+     <div class="img-background">
+        <img class="imgBackground" alt="">
+    </div>
 
     <!-- Contenedor General -->
 
@@ -134,7 +134,7 @@ if ($_SESSION['Correo']) {
 
             <!--Formulario para agregar solo Mascota-->
             <div class="FromMascota">
-                <form method="post">
+                <form method="POST">
                     <div class="registro-mascota02">
                         <img class="volver01" src="../Img/Iconos/volver.png">
                         <p id="FromMascota">Consultar Propietario</p>
@@ -207,7 +207,7 @@ if ($_SESSION['Correo']) {
                                 <td>" . $HistClic[$i]['Nombre'] . "</td>
                         ";
                 ?>
-                                <td><a href="DeskHistory.html?CodHc=<?php echo $HistClic[$i]['Codigo'] ?>"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
+                                <td><a href="DeskHistory.php?CodHC=<?php echo $HistClic[$i]['Codigo'] ?>&CodMedico=<?php echo BuscarMedico($_SESSION['Correo'])?>&Correo=<?php echo $_SESSION['Correo']?>"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
                             </tr>
                 <?php
                     }
@@ -227,17 +227,28 @@ if ($_SESSION['Correo']) {
         $(document).ready(function () {
             $('#Especie').val();
             recargarLista();
+
             $('#Especie02').val();
             recargarLista2();
+
             $('#Especie').change(function () {
                 recargarLista();
             });
             $('#Especie02').change(function () {
                 recargarLista2();
             });
+
+            let url = new URL(window.location.href);
+            let Documento = url.searchParams.get('Documento');
+            if(Documento){
+                PropEncontrado();
+            }
         })
     </script>
     <script>
+        window.onload = ImgAleatoria();
+        window.onload = ImgBackgound();
+
         function recargarLista() {
             $.ajax({
                 type: "POST",
@@ -259,6 +270,17 @@ if ($_SESSION['Correo']) {
                 }
             });
         }
+
+        function PropEncontrado(){
+            $.ajax({
+                type:"POST",
+                url: "http://localhost/Pets/Vista/Medico/DeskMedico.php"
+            }).done(function(){
+                $(".contenedor-registro").animate({ "left": "24.5%" }, 1000);
+                $(".FromMascota").css("display", "block");
+            });
+        }
+        
     </script>
 </body>
 

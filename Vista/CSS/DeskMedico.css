@@ -303,8 +303,9 @@ body {
     position: absolute;
     top: 15%;
     width: 100%;
+    height: 50%;
     text-align: center;
-    background: #ffffff;
+    background: #FFF;
 }
 
 /* titulo de los imputs*/
@@ -333,10 +334,10 @@ body {
 
 .registro-mascota {
     position: absolute;
-    top: 55%;
+    top: 50%;
     width: 100%;
     text-align: center;
-    background: #ffffff;
+    background: #FFF;
 }
 
 .registro-mascota input {
