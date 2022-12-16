@@ -13,7 +13,7 @@ function ImgAleatoria() {
 
 /* imagen de backgound */
 function ImgBackgound() {
-    var imgan = Math.floor(Math.random() * 8);
+    var imgan = Math.floor(Math.random() * 9);
     switch (imgan) {
         case 0:
             $(".imgBackground").attr("src", "../Img/Background/001.jpg");
