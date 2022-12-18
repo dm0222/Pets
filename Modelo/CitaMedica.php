@@ -48,6 +48,11 @@
                 confirmButtonText: 'Si, Deseo Cancelarla'
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        Swal.fire(
+                            'Cancelada!',
+                            'La Cita a sido Cancelada con Exito',
+                            'success'
+                        )
                         ".$this->EliminarCita($CodCitaMed)."
                         window.location = '../Vista/Medico/DeskHistory.php?CorreoMed=".$CorreoMed."&CodHC=".$CodHC."';
                     }
