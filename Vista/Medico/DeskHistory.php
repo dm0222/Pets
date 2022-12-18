@@ -1,9 +1,10 @@
 <?php
 $inn = 500;
 
-$Cod_Medico = $_GET['CodMedico'];
-$Cod_HistClinc = $_GET['CodHC'];
-$_SESSION['Correo'] = $_GET['Correo'];
+$CodHC = $_GET['CodHC'];
+
+$_SESSION['CorreoMed'] = $_GET['CorreoMed'];
+$CorreoMed = $_SESSION['CorreoMed'];
 
 if (isset($_SESSION['timeout'])) {
     $_session_life = time() - $_SESSION['timeout'];
@@ -14,12 +15,15 @@ if (isset($_SESSION['timeout'])) {
 }
 $_SESSION['timeout'] = time();
 
-if ($_SESSION['Correo']) {
+if ($_SESSION['CorreoMed']) {
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/listar.php");
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/buscar.php");
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/registros.php");
-?>
+    require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/agendar.php");
 
+    $CodMedico = BuscarMedico($CorreoMed);
+    $DatosMasc = BuscarDatMasc($CodHC);
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -46,11 +50,11 @@ if ($_SESSION['Correo']) {
             <p>Pets ++</p>
             <img class="icon01">
             <div class="submenu-superiorDerecha">
-                <a href=""><img src="../Img/Iconos/home.png" alt=""></a>
-                <a href=""><img src="../Img/Iconos/cerrarSesion.png" alt=""></a>
+                <a href="http://localhost/Pets/Vista/Medico/DeskMedico.php?CorreoMed=<?php echo $CorreoMed;?>"><img src="../Img/Iconos/home.png" alt=""></a>
+                <a href="http://localhost/Pets/Index.php" <?php session_destroy()?>><img src="../Img/Iconos/cerrarSesion.png" alt=""></a>
             </div>
             <div class="nombreMascota">
-                <p>En este contendor va el nombre de la Mascota</p>
+                <p>Historia Clinica <?php echo $DatosMasc[2];?></p>
             </div>
         </div>
         <!-- Menu izquierda ////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -124,70 +128,79 @@ if ($_SESSION['Correo']) {
             </div>
         </div>
         <!-- Servicios ////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <?php
+            $DatosPropMasc = BuscarPropMascHC($CodHC);
+        ?>
         <div class="servicio perfil">
             <div class="contendor-titulo perfil-titulo">
                 <p>Pefil</p>
             </div>
-            <form action="" class="From-perfil">
+            <form action="../../Controlador/editar.php" method="POST" class="From-perfil">
                 <div class="registro-propietario">
                     <p>Datos del Propietario</p>
-                    <input id="name" name="Documento" type="text" class="form-input" placeholder="Identificación"
-                        required>
-                    <input id="name" name="PrimerNombre" type="text" class="form-input" placeholder="Primer Nombre"
-                        required>
-                    <input id="name" name="SegundoNombre" type="text" class="form-input" placeholder="Segundo Nombre">
-                    <input id="name" name="PrimerApellido" type="text" class="form-input" placeholder="Primer Apellido"
-                        required>
-                    <input id="name" name="SegundoApellido" type="text" class="form-input"
-                        placeholder="Segundo Apellido">
-                    <input id="name" name="Direccion" type="text" class="form-input" placeholder="Dirección" required>
-                    <input id="name" name="Correo" type="text" class="form-input" placeholder="Correo electornico"
-                        required>
-                    <input id="name" name="Celular" type="text" class="form-input" placeholder="Celular" required>
-                    <input id="name" name="Telefono" type="text" class="form-input" placeholder="Telefono">
+                    <input id="name" name="Documento" type="text" class="form-input" value="<?php echo $DatosPropMasc[0];?>" readonly>
+                    <input id="name" name="PrimerNombre" type="text" class="form-input" value="<?php echo $DatosPropMasc[1];?>" placeholder="Primer Nombre" readonly>
+                    <input id="name" name="SegundoNombre" type="text" class="form-input" value="<?php echo $DatosPropMasc[2];?>" placeholder="Segundo Nombre" readonly>
+                    <input id="name" name="PrimerApellido" type="text" class="form-input" value="<?php echo $DatosPropMasc[3];?>" placeholder="Primer Apellido" readonly>
+                    <input id="name" name="SegundoApellido" type="text" class="form-input" value="<?php echo $DatosPropMasc[4];?>" placeholder="Segundo Apellido" readonly>
+                    <input id="name" name="Direccion" type="text" class="form-input" value="<?php echo $DatosPropMasc[5];?>" placeholder="Dirección" required>
+                    <input id="name" name="Correo" type="text" class="form-input" value="<?php echo $DatosPropMasc[6];?>" placeholder="Correo electornico" required>
+                    <input id="name" name="Celular" type="text" class="form-input" value="<?php echo $DatosPropMasc[7];?>" placeholder="Celular" required>
+                    <input id="name" name="Telefono" type="text" class="form-input" value="<?php echo $DatosPropMasc[8];?>" placeholder="Telefono">
                 </div>
                 <div class="registro-mascota">
                     <p>Datos del Mascota</p>
-                    <input id="name" name="Nombre" type="text" class="form-input" placeholder="Nombre" required>
-                    <input id="name" name="Edad" type="number" class="form-input" placeholder="Edad" required>
-                    <input id="name" name="Genero" type="text" class="form-input" placeholder="Genero" required>
-                    <input id="Especie" name="Especie" type="text" class="form-input" placeholder="Especie"
-                        list="SelectEspecie" required>
-                    <datalist id="SelectEspecie" name="SelectEspecie">
-                        <?php
-                        ListarEspecie();
-                    ?>
-                    </datalist>
-                    <input name="Raza" type="text" class="form-input" placeholder="Raza" list="SelectRaza" required>
-                    <datalist id="SelectRaza">
-                    </datalist>
-                    <input id="name" name="Color" type="text" class="form-input" placeholder="Color" required>
-                    <input id="name" name="Observaciones" type="text" class="form-input" placeholder="Observaciones"
-                        required>
-                    <input type="hidden" name="DocumentoMed" class="buscarID-mascota"
-                        value="<?php echo BuscarMedico($_SESSION['Correo']); ?>">
+                    <input id="name" name="Nombre" type="text" class="form-input" value="<?php echo $DatosPropMasc[11];?>" placeholder="Nombre" required>
+                    <input id="name" name="Edad" type="number" class="form-input" value="<?php echo $DatosPropMasc[12];?>" placeholder="Edad" required>
+                    <input id="name" name="Genero" type="text" class="form-input" value="<?php echo $DatosPropMasc[13];?>" placeholder="Genero" readOnly>
+                    <input id="Especie" type="text" class="form-input" value="<?php echo $DatosPropMasc[18];?>" placeholder="Especie"  readOnly>
+                    <input id="Especie" name="Especie" type="hidden" class="form-input" value="<?php echo $DatosPropMasc[14];?>" placeholder="Especie"  readOnly>
+                    <input type="text" class="form-input" value="<?php echo $DatosPropMasc[19];?>" placeholder="Raza" readonly>
+                    <input name="Raza" type="hidden" class="form-input" value="<?php echo $DatosPropMasc[15];?>" placeholder="Raza" readonly>
+                    <input id="name" name="Color" type="text" class="form-input" value="<?php echo $DatosPropMasc[16];?>" placeholder="Color" required>
+                    <input id="name" name="Observaciones" type="text" class="form-input" value="<?php echo $DatosPropMasc[17];?>" placeholder="Observaciones" required>
+
+                    <input type="hidden" name="Codigo" class="buscarID-mascota" value="<?php echo $DatosPropMasc[9];?>">
+                    <input type="hidden" name="CorreoMed" class="buscarID-mascota" value="<?php echo $CorreoMed; ?>">
+                    <input type="hidden" name="CodHC" class="buscarID-mascota" value="<?php echo $CodHC; ?>">
+                    <input type="hidden" name="CodMedico" class="buscarID-mascota" value="<?php echo $CodMedico; ?>">
                 </div>
                 <input type="submit" name="EditarPerfil" class="EditarPerfil" value="Editar">
             </form>
             <img class="cerrarServicio" src="../Img/Iconos/cerrar.png">
         </div>
+
         <div class="servicio agendar">
             <div class="contendor-titulo agendar-titulo">
                 <p>Agendar Cita Medica</p>
             </div>
             <img class="cerrarServicio" src="../Img/Iconos/cerrar.png" alt="">
-            <form action="" class="From-Agendar">
+            <form action="../../Controlador/agendar.php" method="POST" class="From-Agendar">
                 <div class="agendarCita">
                     <p>Asignar proxima cita</p>
-                    <input id="name" name="fechaAgerdar" type="date" class="input-Agendar" placeholder="Identificación">
+                    <input id="name" name="FechaAgendar" type="date" class="input-Agendar" placeholder="Identificación">
+                    <input id="name" name="TipoCita" type="text" class="form-input" placeholder="Tipo de Cita" list="TipoCita" required>
+                    <datalist id="TipoCita">
+                        <?php
+                        ListarTipoCita();
+                        ?>
+                    </datalist>
                     <p>Observaciones</p>
-                    <textarea pattern="[a-zA-Z0-9áéíóúÁÉÍTipoÓÚñÑ ]{1,40}" type="text" value="Observaciones"
+                    <textarea pattern="[a-zA-Z0-9áéíóúÁÉÍTipoÓÚñÑ ]{1,40}" type="text" placeholder="Observaciones"
                         name="Observacion_CitaMedica" id="Observacion_CitaMedica" maxlength="400" rows="7"
                         cols="60"></textarea>
-                    <input type="button" name="EditarPerfil" class="consultarCita" value="Consultar">
-                    <input type="submit" name="EditarPerfil" class="crearCita" value="Crear">
+
+                    <input type="hidden" name="CodMedico" class="buscarID-mascota" value="<?php echo $CodMedico; ?>">    
+                    <input type="hidden" name="CodHC" class="buscarID-mascota" value="<?php echo $CodHC; ?>">    
+                    <input type="hidden" name="CorreoMed" class="buscarID-mascota" value="<?php echo $CorreoMed; ?>">
+
+                    <input type="button" name="ConsultarCita" class="consultarCita" value="Consultar">
+                    <input type="submit" name="CrearCita" class="crearCita" value="Crear">
                 </div>
             </form>
+            <?php
+                $CitasMed = ListarCitaMedica($CodHC);
+            ?>
             <div class="listarCita">
                 <img src="../Img/Iconos/volver.png" alt="" class="volverListaCita">
                 <table class="tablaAgendar">
@@ -200,28 +213,20 @@ if ($_SESSION['Correo']) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>12/12/2020</td>
-                            <td>Control</td>
-                            <td> <img src="../Img/Iconos/editar.png" alt=""></td>
-                            <td> <img src="../Img/Iconos/borrar.png" alt=""></td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>12/12/2020</td>
-                            <td>Control</td>
-                            <td> <img src="../Img/Iconos/editar.png" alt=""></td>
-                            <td> <img src="../Img/Iconos/borrar.png" alt=""></td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>12/12/2020</td>
-                            <td>Control</td>
-                            <td> <img src="../Img/Iconos/editar.png" alt=""></td>
-                            <td> <img src="../Img/Iconos/borrar.png" alt=""></td>
-                        </tr>
+                        <?php
+                        for ($i = 0;$i<count($CitasMed);$i++){
+                            echo"
+                            <tr>
+                                <td>".$CitasMed[$i]['Fecha']."</td>
+                                <td>".$CitasMed[$i]['Observaciones']."</td>
+                            ";
+                        ?>
+                                <td class="EditCM"> <img src="../Img/Iconos/editar.png" alt=""></td>
+                                <td><a href="../../Controlador/eliminar.php?CodHC=<?php echo $CodHC ?>&CorreoMed=<?php echo $CorreoMed ?>&CodCitaMed=<?php echo $CitasMed[$i]['Codigo']?>"><img src="../Img/Iconos/borrar.png" alt=""></a></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -273,10 +278,8 @@ if ($_SESSION['Correo']) {
                 </div>
                 <div class="contenedorFormulaE">
                     <img src="../Img/Iconos/volver.png" alt="" class="volverFromulaE">
-                    <input id="name" name="NombreM" type="text" class="form-input" placeholder="Nombre del Medicamento"
-                        required>
-                    <input id="name" name="PresentacionM" type="text" class="form-input"
-                        placeholder="Presentación del Medicamento" required>
+                    <input id="name" name="NombreM" type="text" class="form-input" placeholder="Nombre del Medicamento" required>
+                    <input id="name" name="PresentacionM" type="text" class="form-input" placeholder="Presentación del Medicamento" required>
                     <input id="name" name="TipoM" type="text" class="form-input" placeholder="Tipo de Medicamento"
                         required>
                     <input id="name" name="DosisM" type="text" class="form-input" placeholder="Dosis de Medicamento"
@@ -300,29 +303,29 @@ if ($_SESSION['Correo']) {
             <form action="" class="From-citaMedica">
                 <div class="datos-citaMedica">
                     <input id="name" name="fechaCitaM" type="date" class="input-Agendar">
-                    <input id="name" name="TipoCita" type="text" class="form-input" placeholder="Tipo de Cita" required>
+                    <input id="name" name="TipoCita" type="text" class="form-input" placeholder="Tipo de Cita" list="TipoCita" required>
+                    <datalist id="TipoCita">
+                        <?php
+                        ListarTipoCita();
+                        ?>
+                    </datalist>
                     <input id="name" name="Auscultación" type="text" class="form-input" placeholder="Auscultación"
                         required>
                     <input id="name" name="Oidos" type="text" class="form-input" placeholder="Oidos" required>
                     <input id="name" name="Ojos" type="text" class="form-input" placeholder="Ojos" required>
                     <input id="name" name="Mucosas" type="text" class="form-input" placeholder="Mucosas" required>
-                    <input id="name" name="FrecuenciaR" type="text" class="form-input"
-                        placeholder="Frecuencia Respiratoria" required>
-                    <input id="name" name="FrecuenciaC" type="text" class="form-input" placeholder="Frecuencia Cardiaca"
-                        required>
+                    <input id="name" name="FrecuenciaR" type="text" class="form-input" placeholder="Frecuencia Respiratoria" required>
+                    <input id="name" name="FrecuenciaC" type="text" class="form-input" placeholder="Frecuencia Cardiaca" required>
                     <input id="name" name="Peso" type="text" class="form-input" placeholder="Peso" required>
                     <input id="name" name="Tilc" type="text" class="form-input" placeholder="Tilc" required>
                     <input id="name" name="Gangleos" type="text" class="form-input" placeholder="Gangleos" required>
-                    <input id="name" name="Palpitacion" type="text" class="form-input" placeholder="Palpitación"
-                        required>
+                    <input id="name" name="Palpitacion" type="text" class="form-input" placeholder="Palpitación" required>
                     <input id="name" name="CavidadO" type="text" class="form-input" placeholder="Cavidad Oral" required>
                     <input id="name" name="Nervioso" type="text" class="form-input" placeholder="Nervioso" required>
-                    <input id="name" name="Temperatura" type="text" class="form-input" placeholder="Temperatura"
-                        required>
+                    <input id="name" name="Temperatura" type="text" class="form-input" placeholder="Temperatura" required>
                     <input id="name" name="Tegumento" type="text" class="form-input" placeholder="Tegumento" required>
                     <textarea pattern="[a-zA-Z0-9áéíóúÁÉÍTipoÓÚñÑ ]{1,40}" type="text" value="Observaciones"
-                        name="Observacion_CitaMedica" id="Observacion_CitaMedica" maxlength="400" rows="5" cols="60"
-                        placeholder="Observaciones"></textarea>
+                        name="Observacion_CitaMedica" id="Observacion_CitaMedica" maxlength="400" rows="5" cols="60" placeholder="Observaciones"></textarea>
                 </div>
                 <div class="Inputs-fyc">
                     <input type="button" name="formulaMedical" class="formulaMedica" value="Formula Medica">
@@ -476,9 +479,7 @@ if ($_SESSION['Correo']) {
     window.onload = ImgAleatoria();
     window.onload = ImgBackgound();
     </script>
-
 </body>
-
 </html>
 <?php
  } else {

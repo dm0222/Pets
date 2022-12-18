@@ -88,10 +88,11 @@
                                             $_POST['Especie'],
                                             $_POST['Raza'],
                                             $_POST['Color'],
-                                            $_POST['Observaciones']
+                                            $_POST['Observaciones'],
+                                            $_POST['CorreoMed']
                                         );
 
-        $Obj_HistClinc->RegistrarHistClin($_POST['DocumentoMed']);
+        $Obj_HistClinc->RegistrarHistClin($_POST['CodMedico']);
     }
 
     //Funcion encargada de hacer el POST para agregr 'Mascota'
@@ -108,9 +109,10 @@
                                         $_POST['Especie'],
                                         $_POST['Raza'],
                                         $_POST['Color'],
-                                        $_POST['Observaciones']
+                                        $_POST['Observaciones'],
+                                        $_POST['CorreoMed']
                                     );
 
-        $Obj_HistClinc->RegistrarHistClin($_POST['DocumentoMed']);
+        $Obj_HistClinc->RegistrarHistClin($_POST['CodMedico']);
     }
 ?>

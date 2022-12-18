@@ -8,12 +8,16 @@
         $Obj_Mascota = new Mascota;
     
     if(isset($_POST['BuscarProp'])){
-        $Obj_Persona->BuscarPropietario($_POST['Documento'],$_POST['Correo']);
+        $Obj_Persona->BuscarPropietario($_POST['Documento'],$_POST['CorreoMed']);
     }
 
     if(isset($_POST['BuscarHistClin'])){
-        $Obj_Persona->BuscarPropietario($_POST['Documento']);
+        $Obj_Persona->BuscarPropietario($_POST['Documento'],$_POST['CorreoMed']);
     }
+
+    
+
+    
 
     
 

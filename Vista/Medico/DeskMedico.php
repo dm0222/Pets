@@ -1,8 +1,8 @@
 <?php
 $inn = 500;
 
-$_SESSION['Correo'] = $_GET['Correo'];
-$CorreoMed = $_SESSION['Correo'];
+$_SESSION['CorreoMed'] = $_GET['CorreoMed'];
+$CorreoMed = $_SESSION['CorreoMed'];
 
 if (isset($_SESSION['timeout'])) {
     $_session_life = time() - $_SESSION['timeout'];
@@ -13,13 +13,20 @@ if (isset($_SESSION['timeout'])) {
 }
 $_SESSION['timeout'] = time();
 
-if ($_SESSION['Correo']) {
+if ($_SESSION['CorreoMed']) {
     
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/listar.php");
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/buscar.php");
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/registros.php");
 
-    $DocMedico = BuscarMedico($CorreoMed);
+    $CodMedico = BuscarMedico($CorreoMed);
+
+    if (isset($_GET['Documento'])) {
+        $Documento = $_GET['Documento'];
+    }
+    else{
+        $Documento = "";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -51,7 +58,7 @@ if ($_SESSION['Correo']) {
             <p>Pets ++</p>
             <img class="icon01">
             <div class="submenu-superiorDerecha">
-                <a href=""><img src="../Img/Iconos/cerrarSesion.png" alt=""></a>
+                <a href="http://localhost/Pets/Index.php" <?php session_destroy()?>><img src="../Img/Iconos/cerrarSesion.png" alt=""></a>
             </div>
         </div>
 
@@ -133,20 +140,20 @@ if ($_SESSION['Correo']) {
                     </datalist>
                     <input id="name" name="Color" type="text" class="form-input" placeholder="Color" required>
                     <input id="name" name="Observaciones" type="text" class="form-input" placeholder="Observaciones" required>
-                    <input type="hidden" name="DocumentoMed" class="buscarID-mascota" value="<?php echo $resultado ?>">
-                    <input type="hidden" name="CorreoMed" class="buscarID-mascota" value="<?php echo $_SESSION['Correo']; ?>">
+                    <input type="hidden" name="CodMedico" class="buscarID-mascota" value="<?php echo $CodMedico;?>">
+                    <input type="hidden" name="CorreoMed" class="buscarID-mascota" value="<?php echo $CorreoMed;?>">
                 </div>
                 <input type="submit" name="AgregarPropMasc" class="RegistroProp" value="Registrar">
             </form>
 
             <!--Formulario para agregar solo Mascota-->
             <div class="FromMascota">
-                <form method="POST">
+                <form action="../../Controlador/buscar.php" method="POST">
                     <div class="registro-mascota02">
                         <img class="volver01" src="../Img/Iconos/volver.png">
                         <p id="FromMascota">Consultar Propietario</p>
-                        <input type="text" name="Documento" id="" placeholder="Buscar por ID" class="buscarID-mascota" required>
-                        <input type="hidden" name="Correo" class="buscarID-mascota" value="<?php echo $_SESSION['Correo']; ?>">
+                        <input type="text" name="Documento" id="" placeholder="Buscar por ID" class="buscarID-mascota" value="<?php echo $Documento ?>" required>
+                        <input type="hidden" name="CorreoMed" class="buscarID-mascota" value="<?php echo $CorreoMed; ?>">
                         <input type="submit" name="BuscarProp" id="" value="Consultar" class="consultarID-mascota">
                 </form>
                 <?php
@@ -171,8 +178,7 @@ if ($_SESSION['Correo']) {
                     <input id="name" name="Color" type="text" class="form-input" placeholder="Color">
                     <input id="name" name="Observaciones" type="text" class="form-input" placeholder="Observaciones">
                     <input type="hidden" name="Documento" class="buscarID-mascota" value="<?php echo $_GET['Documento'] ?>">
-                    <input type="hidden" name="DocumentoMed" class="buscarID-mascota" value="<?php echo $resultado ?>">
-                    <input type="hidden" name="CorreoMed" class="buscarID-mascota" value="<?php echo $_SESSION['Correo']; ?>">
+                    <input type="hidden" name="CorreoMed" class="buscarID-mascota" value="<?php echo $CorreoMed; ?>">
             </div>
                 <input type="submit" name="AgregarMascota" class="RegistroProp02" value="Registrar">
                 </form>
@@ -216,7 +222,7 @@ if ($_SESSION['Correo']) {
                                 <td>" . $HistClic[$i]['Nombre'] . "</td>
                         ";
                 ?>
-                                <td><a href="DeskHistory.php?CodHC=<?php echo $HistClic[$i]['Codigo'] ?>&CodMedico=<?php echo $DocMedico; ?>&Correo=<?php echo $_SESSION['Correo']?>"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
+                                <td><a href="DeskHistory.php?CodHC=<?php echo $HistClic[$i]['Codigo'] ?>&CorreoMed=<?php echo $CorreoMed?>"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
                             </tr>
                 <?php
                     }
@@ -286,6 +292,7 @@ if ($_SESSION['Correo']) {
             }).done(function(){
                 $(".contenedor-registro").animate({ "left": "24.5%" }, 1000);
                 $(".FromMascota").css("display", "block");
+                $(".buscarID-mascota").prop("readonly", "true");
             });
         }
     </script>

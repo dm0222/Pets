@@ -2,7 +2,7 @@
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Conexion/Conexion.php");
     class Mascota{
     
-        public function AgregarMascota($Documento,$Nombre,$Edad,$Genero,$Especie,$Raza,$Color,$Observaciones){
+        public function AgregarMascota($Documento,$Nombre,$Edad,$Genero,$Especie,$Raza,$Color,$Observaciones,$CorreoMed){
             $Obj_Conexion = new Conexion;
             $Conexion = $Obj_Conexion->conexion();
 
@@ -36,7 +36,7 @@
                         text:'La Mascota a sido registrada con Exito'
                     }).then((result) => {
                         if(result.isConfirmed){
-                            window.location = '../Vista/Medico/DeskMedico.php?Correo=".$_SESSION['Correo']."';
+                            window.location = '../Vista/Medico/DeskMedico.php?CorreoMed=".$CorreoMed."';
                         }
                     });   
                 </script>
@@ -44,8 +44,33 @@
             
         }
 
-        public function EditarMascota($Codigo,$Documento,$Nombre,$Edad,$Genero,$Raza,$Especie,$Color,$Observaciones){
-
+        public function EditarMascota($Codigo,$Documento,$Nombre,$Edad,$Genero,$Raza,$Especie,$Color,$Observaciones,$CorreoMed,$CodHC){
+            $Obj_Conexion = new Conexion;
+            $Conexion = $Obj_Conexion->conexion();
+            $modificar = "UPDATE mascota SET Codigo = '$Codigo',
+                                            FK_CodPropietario = '$Documento',
+                                            Nombre = '$Nombre',
+                                            Edad = '$Edad',
+                                            Genero = '$Genero',
+                                            Raza = '$Raza',
+                                            Especie = '$Especie',
+                                            Observaciones = '$Observaciones'
+                                        WHERE Codigo = '$Codigo'
+                        ";
+            mysqli_query($Conexion, $modificar);
+            echo "
+                <script>
+                    Swal.fire({
+                        icon:'success',
+                        title:'Editado',
+                        text:'los Datos han sido modificados Exitosamente!!'
+                    }).then((result) => {
+                        if(result.isConfirmed){
+                            window.location = '../Vista/Medico/DeskHistory.php?CorreoMed=".$CorreoMed."&CodHC=".$CodHC."';
+                        }
+                    });   
+                </script>
+            ";
         }
 
         public function EliminarMascota($Codigo){

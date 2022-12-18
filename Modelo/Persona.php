@@ -68,9 +68,9 @@
                     }
                 break;
             }
-        }
+            }
 
-            public function BuscarPropietario($Documento,$Correo){
+            public function BuscarPropietario($Documento,$CorreoMed){
                 $Obj_Conexion = new Conexion;
                 $Conexion= $Obj_Conexion->conexion();
                 $queybuscar = "SELECT * FROM propietario WHERE Documento = '$Documento'";
@@ -84,7 +84,7 @@
                             text:'Propietario encontrado'
                         }).then((result) => {
                             if(result.isConfirmed){
-                                window.location = '../Medico/DeskMedico.php?Documento=".$Documento."&Correo=".$Correo."';
+                                window.location = '../Medico/DeskMedico.php?Documento=".$Documento."&CorreoMed=".$CorreoMed."';
                             }
                         });     
                     </script>
@@ -100,13 +100,41 @@
                             text:'El cliente no se encuentra registrado en la base de datos'
                         }).then((result) => {
                             if(result.isConfirmed){
-                                window.location = '../Medico/DeskMedico.php';
+                                window.location = '../Medico/DeskMedico.php?CorreoMed=".$CorreoMed."';
                             }
                         });   
                     </script>
                 "; 
                 }
             }
+
+            public function EditarPersona($Documento,$PrimerNombre,$SegundoNombre,$PrimerApellido,$SegundoApellido,$Direccion,$Email,$Celular,$Telefono,$Tipo,$CorreoMed){
+                $Obj_Conexion = new Conexion;
+                $Conexion= $Obj_Conexion->conexion();
+                switch($Tipo){
+                    case 1: //Administrador
+                        
+                    break;
+    
+                    case 2: //Medico
+                        
+                    break;
+                    case 3: //Propietario
+                        $modificar = "UPDATE propietario SET Documento = '$Documento',
+                                                            PrimerNombre = '$PrimerNombre',
+                                                            SegundoNombre = '$SegundoNombre',
+                                                            PrimerApellido = '$PrimerApellido',
+                                                            SegundoApellido = '$SegundoApellido',
+                                                            Direccion = '$Direccion',
+                                                            email = '$Email',
+                                                            celular = '$Celular',
+                                                            telefono = '$Telefono'
+                                                        WHERE Documento = '$Documento'
+                                        ";
+                        mysqli_query($Conexion, $modificar);
+                    break;
+                }
+                }
     }
 
 

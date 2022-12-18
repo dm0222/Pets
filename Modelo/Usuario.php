@@ -149,23 +149,23 @@
                                 text:'$_SESSION[Correo] a Pets'
                             }).then((result) => {
                                 if(result.isConfirmed){
-                                    window.location = '../Vista/Administrador/DeskAdmin.php?Correo=".$_SESSION['Correo']."';
+                                    window.location = '../Vista/Administrador/DeskAdmin.php?CorreoMed=".$_SESSION['CorreoMed']."';
                                 }
                             });   
                         </script>
                     "; 
                 break;
                 case 12:
-                    $_SESSION['Correo']= $Email;
+                    $_SESSION['CorreoMed']= $Email;
                     echo "
                         <script>
                             Swal.fire({
                                 icon:'success',
                                 title:'Bienvenido',
-                                text:'$_SESSION[Correo] a Pets'
+                                text:'$_SESSION[CorreoMed] a Pets'
                             }).then((result) => {
                                 if(result.isConfirmed){
-                                    window.location = '../Vista/Medico/DeskMedico.php?Correo=".$_SESSION['Correo']."';
+                                    window.location = '../Vista/Medico/DeskMedico.php?CorreoMed=".$_SESSION['CorreoMed']."';
                                 }
                             });   
                         </script>
