@@ -40,6 +40,7 @@
             $conexion=new Conexion;
             $conecta = $conexion->conexion();
             $insertar="INSERT INTO cuenta VALUES (NULL,'$Documento','$Email','$contrasena',12, 11)";
+            echo $insertar;
             $resultado=mysqli_query($conecta,$insertar);
             echo "
                 <script>
@@ -148,7 +149,7 @@
                                 text:'$_SESSION[Correo] a Pets'
                             }).then((result) => {
                                 if(result.isConfirmed){
-                                    window.location = '../Vista/Administrador/DeskAdmin.php';
+                                    window.location = '../Vista/Administrador/DeskAdmin.php?Correo=".$_SESSION['Correo']."';
                                 }
                             });   
                         </script>
@@ -164,7 +165,7 @@
                                 text:'$_SESSION[Correo] a Pets'
                             }).then((result) => {
                                 if(result.isConfirmed){
-                                    window.location = '../Vista/Medico/DeskMedico.php';
+                                    window.location = '../Vista/Medico/DeskMedico.php?Correo=".$_SESSION['Correo']."';
                                 }
                             });   
                         </script>

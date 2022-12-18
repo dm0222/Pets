@@ -1,6 +1,10 @@
 <?php
-session_start();
+//session_start();
 $inn = 500;
+
+$_SESSION['Correo'] = $_GET['Correo'];
+$CorreoMed = $_SESSION['Correo'];
+
 if (isset($_SESSION['timeout'])) {
     $_session_life = time() - $_SESSION['timeout'];
     if ($_session_life > $inn) {
@@ -11,12 +15,12 @@ if (isset($_SESSION['timeout'])) {
 $_SESSION['timeout'] = time();
 
 if ($_SESSION['Correo']) {
-
+    
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/listar.php");
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/buscar.php");
     require_once("$_SERVER[DOCUMENT_ROOT]/Pets/Controlador/registros.php");
 
-    
+    $DocMedico = BuscarMedico($CorreoMed);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -207,7 +211,7 @@ if ($_SESSION['Correo']) {
                                 <td>" . $HistClic[$i]['Nombre'] . "</td>
                         ";
                 ?>
-                                <td><a href="DeskHistory.php?CodHC=<?php echo $HistClic[$i]['Codigo'] ?>&CodMedico=<?php echo BuscarMedico($_SESSION['Correo'])?>&Correo=<?php echo $_SESSION['Correo']?>"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
+                                <td><a href="DeskHistory.php?CodHC=<?php echo $HistClic[$i]['Codigo'] ?>&CodMedico=<?php echo $DocMedico; ?>&Correo=<?php echo $_SESSION['Correo']?>"> <img src="../Img/Iconos/comprobado.png" alt=""></a></td>
                             </tr>
                 <?php
                     }
@@ -217,13 +221,15 @@ if ($_SESSION['Correo']) {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
     <script src="http://localhost/Pets/Vista/js/jquery-3.6.1.min.js"></script>
     <script src="http://localhost/Pets/Vista/js/main.js"></script>
     <script>
+        window.onload = ImgAleatoria();
+        window.onload = ImgBackgound();
+
         $(document).ready(function () {
             $('#Especie').val();
             recargarLista();
@@ -246,9 +252,6 @@ if ($_SESSION['Correo']) {
         })
     </script>
     <script>
-        window.onload = ImgAleatoria();
-        window.onload = ImgBackgound();
-
         function recargarLista() {
             $.ajax({
                 type: "POST",
@@ -280,7 +283,6 @@ if ($_SESSION['Correo']) {
                 $(".FromMascota").css("display", "block");
             });
         }
-        
     </script>
 </body>
 

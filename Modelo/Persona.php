@@ -81,10 +81,14 @@
                             icon:'success',
                             title:'Bienvenido',
                             text:'Propietario encontrado'
-                        });  
+                        }).then((result) => {
+                            if(result.isConfirmed){
+                                window.location = '../Medico/DeskMedico.php?Documento=".$Documento."';
+                            }
+                        });   
                     </script>
                     ";
-                    header('Location: ../Medico/DeskMedico.php?Documento='.$Documento.''); 
+                    //header('Location: ../Medico/DeskMedico.php?Documento='.$Documento.''); 
                 }
                 else{
                     echo "

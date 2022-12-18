@@ -357,3 +357,71 @@ $(".cerrarServicio").click(function () {
     $(".remision").animate({ "left": "150%" }, 1000);
     $(".vacunacion").animate({ "left": "150%" }, 1000);
 });
+
+//Scripts Administrador
+
+// Perfil
+
+let ValidarPerfil = 0
+
+$(".PerfilAdm01").click(function () {
+    switch (ValidarPerfil) {
+        case 0:
+            $(".perfil").animate({ "left": "24.5%" }, 1000);
+            $(".perfil").css("z-index", "1");
+            $(".listar").css("z-index", "0");
+            ValidarPerfil = 1;
+            break;
+        case 1:
+            $(".perfil").animate({ "left": "150%" }, 1000);
+            $(".perfil").css("z-index", "0");
+            ValidarPerfil = 0;
+            break;
+    }
+});
+
+$(".PerfilAdm02").click(function () {
+    $(".perfil").animate({ "left": "24.5%" }, 1000);
+    $(".perfil").css("z-index", "1");
+    $(".listar").css("z-index", "0");
+    ValidarPerfil = 1;
+});
+
+$(".cerrarperfil").click(function () {
+    $(".perfil").animate({ "left": "150%" }, 1000);
+    $(".perfil").css("z-index", "0");
+    ValidarPerfil = 0;
+});
+
+// Listar
+
+let ValidarListar = 0
+
+$(".Listar01").click(function () {
+    switch (ValidarListar) {
+        case 0:
+            $(".listar").animate({ "left": "24.5%" }, 1000);
+            $(".listar").css("z-index", "1");
+            $(".perfil").css("z-index", "0");
+            ValidarListar = 1;
+            break;
+        case 1:
+            $(".listar").animate({ "left": "150%" }, 1000);
+            $(".listar").css("z-index", "0");
+            ValidarListar = 0;
+            break;
+    }
+});
+
+$(".Listar02").click(function () {
+    $(".listar").animate({ "left": "24.5%" }, 1000);
+    $(".listar").css("z-index", "1");
+    $(".perfil").css("z-index", "0");
+    ValidarListar = 1;
+});
+
+$(".cerrarListar").click(function () {
+    $(".listar").animate({ "left": "150%" }, 1000);
+    $(".listar").css("z-index", "0");
+    ValidarListar = 0;
+});

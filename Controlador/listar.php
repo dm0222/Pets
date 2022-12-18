@@ -15,12 +15,19 @@
 
     function BuscarMedico($Correo){
         $Conexion = new Conexion;
-        $query = "SELECT Documento FROM medico WHERE email = '$Correo'";
+        $query = "SELECT * FROM medico WHERE email = '$Correo'";
         $resultado = mysqli_query($Conexion->conexion(),$query);
         $row = mysqli_fetch_row($resultado);
         $Doc_Medico = $row[0];
         
         return $Doc_Medico;
+    }
+
+    function BuscarAdmin($Correo){
+        $Conexion = new Conexion;
+        $query = "SELECT Documento FROM medico WHERE email = '$Correo'";
+        $resultado = mysqli_query($Conexion->conexion(),$query);
+        $row = mysqli_fetch_row($resultado);
     }
 
     if(isset($_POST['Nom_Especie'])){
@@ -32,7 +39,7 @@
             $row = mysqli_fetch_row($resultado);
             $Cod_Especie = $row[0];
 
-            $listar = "SELECT * FROM Raza WHERE FK_CodEspecie = '$Cod_Especie'";
+            $listar = "SELECT * FROM raza WHERE FK_CodEspecie = '$Cod_Especie'";
             echo $listar;
             $resultado = mysqli_query($Conexion->conexion(), $listar);
             $row = mysqli_fetch_row($resultado);
@@ -52,6 +59,18 @@
                 $listaHistClic[] = $row;
             }
         return $listaHistClic;
+    }
+
+    function ListarMedico(){
+        $listarMed = array();
+        $Conexion = new Conexion;
+            $Conectar = $Conexion->conexion();
+            $query = "SELECT * FROM medico";
+            $resultado = mysqli_query($Conectar,$query);
+            while($row = mysqli_fetch_assoc($resultado)){
+                $listarMed[] = $row;
+            }
+        return $listarMed;
     }
 
 

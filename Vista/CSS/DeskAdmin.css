@@ -1,0 +1,305 @@
+@font-face {
+    font-family: "Roboto-Light";
+    src: url("../fonts/Roboto-Light.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("../fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Black";
+    src: url("../fonts/Roboto-Black.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+body {
+    font-family: 'Roboto-Lihgt';
+    min-height: 100vh;
+}
+
+.img-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.imgBackground {
+    background-size: cover;
+}
+
+/* Contenedor general */
+
+.contenedor-general {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    z-index: 10;
+}
+
+.menu-superior {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 8%;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    font-family: 'Roboto-Black';
+    font-size: 2.5vw;
+    background: #ffffff;
+    box-shadow: 3px 5px 5px 5px #00000044;
+    z-index: 50;
+}
+
+.menu-superior p {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5%;
+}
+
+.icon01 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1%;
+    height: 80%;
+}
+
+.menu-izquierda {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 17%;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    border-right: solid 2px #F0F0F0;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(100px);
+}
+
+.menu-izquierda div {
+    position: relative;
+    top: 24%;
+    cursor: pointer;
+    border-bottom: solid 2px #000000;
+}
+
+.menu-izquierda div img {
+    position: relative;
+    left: 5%;
+    top: 50%;
+    transform: translateY(30%);
+    width: 15%;
+    border-radius: 50px;
+}
+
+.menu-izquierda div p {
+    position: relative;
+    top: 50%;
+    transform: translateY(-100%);
+    left: 25%;
+    font-family: "Roboto-Black";
+    font-size: 1.2vw;
+    margin: 0%;
+    padding: 0%;
+}
+
+.menu-izquierda div:hover {
+    box-shadow: 3px 5px 5px 5px #00000044;
+}
+
+/* Menu Central */
+
+.menu-central {
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    top: 20%;
+    left: 30%;
+    height: 70%;
+    width: 65%;
+    font-family: "Roboto-Regular";
+}
+
+.menu-central div {
+    margin: 3%;
+    padding: 2%;
+    top: 17%;
+    width: 12%;
+    height: 28%;
+    border-radius: 20px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.911);
+}
+
+.menu-central div:hover {
+    box-shadow: 3px 5px 5px 5px #00000044;
+}
+
+.menu-central img { 
+    position: relative;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+}
+
+.menu-central p {
+    position: relative;
+    top: 30%;
+    text-align: center;
+}
+
+.menu {
+    position: fixed;
+    top: 14%;
+    left: 150%;
+    height: 80%;
+    width: 70%;
+    border-radius: 20px;
+    box-shadow: 3px 5px 5px 5px #00000027;
+    align-items: center;
+    background: #ffffff;
+}
+
+.contendor-titulo {
+    position: absolute;
+    top: 0%;
+    margin: 0%;
+    padding: 0%;
+    width: 99.9%;
+    height: 8%;
+    border-width: 1px;
+    border-style: solid;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: rgb(0, 0, 0);
+    font-family: 'Roboto-Black';
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+/* color para background de cada titulo */
+
+.listar-titulo{
+    background: #A160E4;
+    border-color: #A160E4;
+}
+
+.perfil-titulo{
+    background: #39baec ;
+    border-color: #39baec;
+}
+
+.cerrar{
+    position: absolute;
+    top: 1%;
+    left: 96%;
+    width: 3%;
+    cursor: pointer;
+}
+
+/*Datos Aministrador*/
+
+.datos-administrador {
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    background: #FFF;
+}
+
+
+.datos-administrador p {
+    position: relative;
+    top: 0%;
+    font-family: "Roboto-Regular";
+    text-align: center;
+}
+
+
+.datos-administrador input {
+    display: inline-block;
+    margin: 1%;
+    margin-top: 2%;
+    padding-left: 10px;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+/*Listar Medicos*/
+
+.tablaMedicos {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 30%;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
+    font-family: "Roboto-Regular";
+    border: solid 1px #F0F0F0;
+}
+
+.tituloTablaH {
+    font-family: 'Roboto-Black';
+    top: 0%;
+}
+
+td img {
+    position: relative;
+    width: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Tamaños de las columnas */
+
+.columnaID {
+    width: 15%;
+}
+
+.columnaPropietario{
+    width: 40%;
+}
+
+.columnaMascota{
+    width: 35%;
+}
+.columnaCargar { 
+    width: 10%;
+}
+ 
+thead {
+    background:#9DCFFF;
+    font-family: 'Roboto-Black';
+}
+tr:nth-child(even){
+    background: #ddd;
+}
+
