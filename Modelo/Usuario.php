@@ -148,7 +148,7 @@
                                 text:'$_SESSION[Correo] a Pets'
                             }).then((result) => {
                                 if(result.isConfirmed){
-                                    window.location = '../Vista/Administrador/DeskAdmin.php';
+                                    window.location = '../Vista/Administrador/DeskAdmin.php?Correo=".$_SESSION['Correo']."';
                                 }
                             });   
                         </script>
@@ -164,7 +164,7 @@
                                 text:'$_SESSION[Correo] a Pets'
                             }).then((result) => {
                                 if(result.isConfirmed){
-                                    window.location = '../Vista/Medico/DeskMedico.php';
+                                    window.location = '../Vista/Medico/DeskMedico.php?Correo=".$_SESSION['Correo']."';
                                 }
                             });   
                         </script>

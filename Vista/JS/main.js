@@ -176,6 +176,37 @@ $(".cerrarHistoria").click(function () {
 
 // Menu Izquierda de Historia
 
+// Perfil
+
+let ValidarPerfil = 0
+
+$(".Perfil01").click(function () {
+    switch (ValidarPerfil) {
+        case 0:
+            $(".perfil").animate({ "left": "24.5%" }, 1000);
+            ValidarPerfil = 1;
+            break;
+        case 1:
+            $(".perfil").animate({ "left": "150%" }, 1000);
+            ValidarPerfil = 0;
+            break;
+    }
+});
+
+$(".Perfil02").click(function () {
+    $(".perfil").animate({ "left": "24.5%" }, 1000);
+    ValidarPerfil = 1;
+});
+
+// hover para boton editar
+
+$(".EditarPerfil").hover(function () {
+    $(".EditarPerfil").css({ "background": "#36A420" }, 1000);
+    $(".EditarPerfil").val("Guardar");
+}, function () {
+    $(".EditarPerfil").css({ "background": "#FFA300" }, 1000);
+    $(".EditarPerfil").val("Editar");
+});
 
 // Agemdar Cita medica
 
@@ -196,6 +227,15 @@ $(".Agendar01").click(function () {
 
 $(".Agendar02").click(function () {
     $(".agendar").animate({ "left": "24.5%" }, 1000);
+    ValidarAgendar = 1;
+});
+
+$(".consultarCita").click(function () {
+    $(".listarCita").css("display", "block");
+});
+
+$(".volverListaCita").click(function () {
+    $(".listarCita").css("display", "none");
 });
 
 // Cirugia
@@ -217,6 +257,7 @@ $(".Cirugia01").click(function () {
 
 $(".Cirugia02").click(function () {
     $(".cirugia").animate({ "left": "24.5%" }, 1000);
+    ValidarCirugia = 1;
 });
 
 // Cita Medica
@@ -238,6 +279,7 @@ $(".Cita01").click(function () {
 
 $(".Cita02").click(function () {
     $(".cita").animate({ "left": "24.5%" }, 1000);
+    ValidarCita = 1;
 });
 
 // Examen
@@ -259,27 +301,7 @@ $(".Examen01").click(function () {
 
 $(".Examen02").click(function () {
     $(".examen").animate({ "left": "24.5%" }, 1000);
-});
-
-// Formula
-
-let ValidarFormula = 0
-
-$(".Formula01").click(function () {
-    switch (ValidarFormula) {
-        case 0:
-            $(".formula").animate({ "left": "24.5%" }, 1000);
-            ValidarFormula = 1;
-            break;
-        case 1:
-            $(".formula").animate({ "left": "150%" }, 1000);
-            ValidarFormula = 0;
-            break;
-    }
-});
-
-$(".Formula02").click(function () {
-    $(".formula").animate({ "left": "24.5%" }, 1000);
+    ValidarExamen = 1;
 });
 
 // Hospitalizacion
@@ -301,6 +323,7 @@ $(".Hospitalizacion01").click(function () {
 
 $(".Hospitalizacion02").click(function () {
     $(".hospitalizacion").animate({ "left": "24.5%" }, 1000);
+    ValidarHospitalizacion = 1;
 });
 
 // Remision
@@ -322,6 +345,7 @@ $(".Remision01").click(function () {
 
 $(".Remision02").click(function () {
     $(".remision").animate({ "left": "24.5%" }, 1000);
+    ValidarRemision = 1;
 });
 
 // Vacunacion
@@ -343,17 +367,53 @@ $(".Vacunacion01").click(function () {
 
 $(".Vacunacion02").click(function () {
     $(".vacunacion").animate({ "left": "24.5%" }, 1000);
+    ValidarVacunacion = 1;
 });
+
+// Formula Medica 
+
+$(".formulaMedica").click(function () {
+    $(".contenedorFormula").css("display", "block");
+});
+
+$(".volverFromula").click(function () {
+    $(".contenedorFormula").css("display", "none");
+});
+
+// Formula Medica de Cirugia
+
+$(".formulaMedicaE").click(function () {
+    $(".contenedorFormulaE").css("display", "block");
+});
+
+$(".volverFromulaE").click(function () {
+    $(".contenedorFormulaE").css("display", "none");
+});
+
+// Formula Medica de Hospitalización
+
+$(".formulaMedicaH").click(function () {
+    $(".contenedorFormulaH").css("display", "block");
+});
+
+$(".volverFromulaH").click(function () {
+    $(".contenedorFormulaH").css("display", "none");
+});
+
 
 // Boton cerrar servicios
 
 $(".cerrarServicio").click(function () {
+    $(".perfil").animate({ "left": "150%" }, 1000);
     $(".agendar").animate({ "left": "150%" }, 1000);
     $(".cirugia").animate({ "left": "150%" }, 1000);
     $(".cita").animate({ "left": "150%" }, 1000);
-    $(".examen").animate({ "left": "150%" }, 1000);
-    $(".formula").animate({ "left": "150%" }, 1000);
+    $(".examen").animate({ "left": "150%" }, 1000);    
     $(".hospitalizacion").animate({ "left": "150%" }, 1000);
     $(".remision").animate({ "left": "150%" }, 1000);
     $(".vacunacion").animate({ "left": "150%" }, 1000);
 });
+
+
+
+

@@ -63,6 +63,21 @@ body {
     z-index: 50;
 }
 
+.submenu-superiorDerecha {
+    position: absolute;
+    right: 0%;
+    height: 100%;
+    width: 10%;
+    text-align: center;
+}
+
+.submenu-superiorDerecha img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
+}
+
 .menu-superior p {
     position: absolute;
     top: 50%;
@@ -76,6 +91,24 @@ body {
     transform: translateY(-50%);
     left: 1%;
     height: 80%;
+}
+
+.nombreMascota {
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nombreMascota p {
+    position: relative;
+    text-align: center;
+    font-family: "Roboto-Black";
+    font-size: 1.2vw;
+    margin: 0%;
+    padding: 0%;
+    color: black;
 }
 
 .menu-izquierda {
@@ -151,7 +184,7 @@ body {
     box-shadow: 3px 5px 5px 5px #00000044;
 }
 
-.menu-central img { 
+.menu-central img {
     position: relative;
     top: 20%;
     left: 50%;
@@ -202,7 +235,7 @@ body {
     transform: translateY(-50%);
 }
 
-.cerrarServicio{
+.cerrarServicio {
     position: absolute;
     top: 1%;
     left: 96%;
@@ -212,42 +245,757 @@ body {
 
 /* color para background de cada titulo */
 
-.agendar-titulo{
+.perfil-titulo {
     background: #A160E4;
     border-color: #A160E4;
 }
 
-.cirugia-titulo{
+.agendar-titulo {
     background: #A160E4;
     border-color: #A160E4;
 }
 
-.cita-titulo{
+.cirugia-titulo {
+    background: #A160E4;
+    border-color: #A160E4;
+}
+
+.cita-titulo {
     background: #FFCE00;
     border-color: #FFCE00;
 }
 
-.examen-titulo{
+.examen-titulo {
     background: #FFE370;
     border-color: #FFE370;
 }
 
-.formula-titulo{
-    background: #FF80AB;
-    border-color: #FF80AB;
-}
-
-.hospitalizacion-titulo{
+.hospitalizacion-titulo {
     background: #00DDC1;
     border-color: #00DDC1;
 }
 
-.remision-titulo{
+.remision-titulo {
     background: #00DDC1;
     border-color: #00DDC1;
 }
 
-.vacunacion-titulo{
+.vacunacion-titulo {
     background: #CE9489;
     border-color: #CE9489;
+}
+
+/* Servicios Inputs */
+
+/* Perfil */
+
+.From-perfil {
+    position: relative;
+    top: 10%;
+    height: 85%;
+    width: 100%;
+}
+
+.From-perfil p {
+    position: relative;
+    text-align: center;
+    margin-top: 2%;
+    font-family: "Roboto-Regular";
+    margin-bottom: 1%;
+}
+
+.From-perfil input {
+    position: relative;
+    display: inline-block;
+    left: 3%;
+    margin: 1%;
+    padding-left: 1%;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+.EditarPerfil {
+    top: 5%;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: #FFA300;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #FFA300;
+}
+
+/* Agendar CIta */
+
+.From-Agendar {
+    position: relative;
+    top: 10%;
+    height: 85%;
+    width: 100%;
+}
+
+.agendarCita {
+    position: absolute;
+    top: 5%;
+    height: 80%;
+    width: 100%;
+    text-align: center;
+}
+
+.input-Agendar {
+    margin: 1%;
+    top: 15%;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+.From-Agendar p {
+    text-align: center;
+    margin: 2%;
+    font-family: "Roboto-Regular";
+
+}
+
+.From-Agendar textarea {
+    position: absolute;
+    border-radius: 20px;
+    padding-left: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.crearCita {
+    position: relative;
+    top: 37%;
+    background: #36A420;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #36A420;
+    margin: 2%;
+}
+
+.consultarCita {
+    position: relative;
+    top: 37%;
+    background: #166FE5;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #166FE5;
+    margin: 2%;
+}
+
+/* Consultar Lista de Citas */
+
+.listarCita {
+    position: absolute;
+    display: none;
+    top: 8%;
+    height: 90%;
+    width: 100%;
+    background: #fff;
+}
+
+.tablaAgendar {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 30%;
+    z-index: 10;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
+    font-family: "Roboto-Regular";
+    border: solid 1px #F0F0F0;
+}
+
+.tituloTablaA {
+    font-family: 'Roboto-Black';
+    top: 0%;
+}
+
+td img {
+    position: relative;
+    width: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+/* Tamaños de las columnas */
+
+.columnaFecha {
+    width: 20%;
+}
+
+.columnaObs{
+    width: 60%;
+}
+
+.columnaEdutar{
+    width: 10%;
+}
+.columnaEliminar { 
+    width: 10%;
+}
+ 
+thead {
+    background:#9DCFFF;
+    font-family: 'Roboto-Black';
+}
+tr:nth-child(even){
+    background: #ddd;
+}
+
+.volverListaCita {
+    position: absolute;
+    top: 2%;
+    left: 96%;
+    width: 3.5%;
+    cursor: pointer;
+}
+
+/* Cirugia */
+
+.From-Cirugia {
+    position: relative;
+    top: 8%;
+    height: 85%;
+    width: 100%;
+}
+
+.From-Cirugia p {
+    position: relative;
+    text-align: center;
+    margin-top: 2%;
+    font-family: "Roboto-Regular";
+    margin-bottom: 1%;
+}
+
+.From-Cirugia input {
+    position: relative;
+    display: inline-block;
+    left: 3%;
+    margin: 1%;
+    padding-left: 1%;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+.From-Cirugia textarea {
+    position: relative;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.crearCirugia {
+    position: absolute !important;
+    top: 85%;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: #36A420;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #36A420;
+    margin: 2%;
+}
+
+.Inputs-fye{
+    position: relative;
+    top: 5%;
+    left: 25%;
+    width: 100%;
+    margin: 0% !important;
+    padding: 0% !important; 
+}
+
+/* Cita Medica */
+
+.From-citaMedica {
+    position: relative;
+    top: 15%;
+    height: 85%;
+    width: 100%;
+}
+
+.From-citaMedica p {
+    position: relative;
+    text-align: center;
+    margin-top: 2%;
+    font-family: "Roboto-Regular";
+    margin-bottom: 1%;
+}
+
+.From-citaMedica input {
+    position: relative;
+    display: inline-block;
+    left: 3%;
+    margin: 1%;
+    padding-left: 1%;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+.From-citaMedica textarea {
+    position: relative;
+    margin-top: 2%;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.crearCitaM {
+    position: relative;
+    top: 5%;
+    background: #36A420;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #36A420;
+    margin: 2%;
+}
+
+.formulaMedica {
+    position: relative;
+    top: 5%;
+    background: #166FE5;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #166FE5;
+    margin: 2%;
+}
+
+.Inputs-fyc{
+    position: relative;
+    top: 5%;
+    left: 25%;
+    width: 100%;
+    margin: 0% !important;
+    padding: 0% !important; 
+}
+
+/* Cita Examen */
+
+.From-Examen {
+    position: relative;
+    top: 20%;
+    height: 50%;
+    width: 100%;
+}
+
+.From-Examen p {
+    position: relative;
+    text-align: center;
+    margin-top: 2%;
+    font-family: "Roboto-Regular";
+    margin-bottom: 1%;
+}
+
+.From-Examen input {
+    position: relative;
+    display: inline-block;
+    left: 3%;
+    margin: 1%;
+    padding-left: 1%;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+.From-Examen textarea {
+    position: relative;
+    margin-top: 2%;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+
+.crearExamen {
+    position: absolute !important;
+    top: 70%;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: #36A420;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #36A420;
+    margin: 2%;
+}
+
+/* Hospitalizacion */
+
+.From-hospitalizacion {
+    position: relative;
+    top: 20%;
+    height: 50%;
+    width: 100%;
+}
+
+.From-hospitalizacion p {
+    position: relative;
+    text-align: center;
+    margin-top: 2%;
+    font-family: "Roboto-Regular";
+    margin-bottom: 1%;
+}
+
+.From-hospitalizacion input {
+    position: relative;
+    display: inline-block;
+    left: 3%;
+    margin: 1%;
+    padding-left: 1%;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+.From-hospitalizacion textarea {
+    position: relative;
+    margin-top: 2%;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.crearHospitalizacion {
+    position: absolute !important;
+    top: 70%;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: #36A420;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #36A420;
+    margin: 2%;
+}
+
+/* Remisión */
+
+.From-remision {
+    position: relative;
+    top: 20%;
+    height: 50%;
+    width: 100%;
+}
+
+.From-remision p {
+    position: relative;
+    text-align: center;
+    margin-top: 2%;
+    font-family: "Roboto-Regular";
+    margin-bottom: 1%;
+}
+
+.From-remision input {
+    position: relative;
+    display: inline-block;
+    left: 3%;
+    margin: 1%;
+    padding-left: 1%;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+.From-remision textarea {
+    position: relative;
+    margin-top: 2%;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.crearRemision {
+    position: absolute !important;
+    top: 55%;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: #36A420;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #36A420;
+    margin: 2%;
+}
+
+/* Vacunación */
+
+.From-vacunacion {
+    position: relative;
+    top: 20%;
+    height: 50%;
+    width: 100%;
+}
+
+.From-vacunacion p {
+    position: relative;
+    text-align: center;
+    margin-top: 2%;
+    font-family: "Roboto-Regular";
+    margin-bottom: 1%;
+}
+
+.From-vacunacion input {
+    position: relative;
+    display: inline-block;
+    left: 3%;
+    margin: 1%;
+    padding-left: 1%;
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: solid 1px #F0F0F0;
+}
+
+.From-vacunacion textarea {
+    position: relative;
+    margin-top: 2%;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.crearVacunacion {
+    position: absolute !important;
+    top: 55%;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: #36A420;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #36A420;
+    margin: 2%;
+}
+
+/* Formula Medica de Cita */
+
+.contenedorFormula {
+    position: absolute;
+    display: none;
+    top: 2%;
+    left: 0%;
+    height: 90%;
+    width: 100%;
+    background: #ffffff;
+    z-index: 10;
+}
+
+.contenedorFormula textarea {
+    position: absolute;
+    top: 28%;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.crearFormula {
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+    background: #36A420;
+    border: solid 1px #36A420;
+    color: #fff;
+    cursor: pointer;
+}
+
+.volverFromula{
+    position: absolute;
+    top: -9%;
+    left: 95.7%;
+    width: 3.5%;
+    cursor: pointer;
+}
+
+/* Formula Medica de Cirugia */
+
+.contenedorFormulaE {
+    position: absolute;
+    display: none;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    z-index: 10;
+}
+
+.contenedorFormulaE input {
+    margin-top: 2% !important;
+}
+
+.contenedorFormulaE textarea {
+    position: absolute;
+    top: 30%;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.crearFormulaE {
+    position: absolute;
+    top: 40%;
+    transform: translateX(-50%);
+    background: #36A420;
+    border: solid 1px #36A420;
+    color: #fff;
+    cursor: pointer;
+}
+
+.volverFromulaE {
+    position: absolute;
+    top: -3%;
+    left: 95.7%;
+    width: 3.5%;
+    cursor: pointer;
+}
+
+.formulaMedicaE {
+    position: relative;
+    top: 5%;
+    background: #166FE5;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #166FE5;
+    margin: 2%;
+}
+
+/* Formula Medica de Hospitalización */
+
+.contenedorFormulaH {
+    position: absolute;
+    display: none;
+    top: 0%;
+    left: 0%;
+    height: 150%;
+    width: 100%;
+    background: #ffffff;
+    z-index: 10;
+}
+
+.contenedorFormulaH textarea {
+    position: absolute;
+    top: 25%;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.crearFormulaH {
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+    background: #36A420;
+    border: solid 1px #36A420;
+    color: #fff;
+    cursor: pointer;
+}
+
+.volverFromulaH {
+    position: absolute;
+    top: -13.5%;
+    left: 95.7%;
+    width: 3.5%;
+    cursor: pointer;
+}
+
+.formulaMedicaH {
+    position: relative;
+    top: 5%;
+    background: #166FE5;
+    width: 20%;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: solid 1px #166FE5;
+    margin: 2%;
+}
+
+.Inputs-fyh{
+    position: relative;
+    top: 5%;
+    left: 25%;
+    width: 100%;
+    margin: 0% !important;
+    padding: 0% !important; 
 }

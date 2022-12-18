@@ -60,6 +60,21 @@ body {
     z-index: 50;
 }
 
+.submenu-superiorDerecha {
+    position: absolute;
+    right: 0%;
+    height: 100%;
+    width: 5%;
+    text-align: center;
+}
+
+.submenu-superiorDerecha img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
+}
+
 .menu-superior p {
     position: absolute;
     top: 50%;
