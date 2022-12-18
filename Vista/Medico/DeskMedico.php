@@ -1,5 +1,4 @@
 <?php
-//session_start();
 $inn = 500;
 
 $_SESSION['Correo'] = $_GET['Correo'];
@@ -32,7 +31,7 @@ if ($_SESSION['Correo']) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
     <link rel="stylesheet" href="http://localhost/Pets/Vista/css/DeskMedico.css">
     <link rel="icon" href="http://localhost/Pets/Img/Iconos/escritorio.png" />
-    <title>Desk</title>
+    <title>Desk Medico</title>
 </head>
 
 <body>
@@ -46,11 +45,14 @@ if ($_SESSION['Correo']) {
 
     <div class="contenedor-general">
 
-        <!-- Menus -->
+        <!-- Menu superior -->
 
         <div class="menu-superior">
             <p>Pets ++</p>
             <img class="icon01">
+            <div class="submenu-superiorDerecha">
+                <a href=""><img src="../Img/Iconos/cerrarSesion.png" alt=""></a>
+            </div>
         </div>
 
         <!-- Menu izquierda  -->
@@ -131,7 +133,8 @@ if ($_SESSION['Correo']) {
                     </datalist>
                     <input id="name" name="Color" type="text" class="form-input" placeholder="Color" required>
                     <input id="name" name="Observaciones" type="text" class="form-input" placeholder="Observaciones" required>
-                    <input type="hidden" name="DocumentoMed" class="buscarID-mascota" value="<?php echo BuscarMedico($_SESSION['Correo']); ?>">
+                    <input type="hidden" name="DocumentoMed" class="buscarID-mascota" value="<?php echo $resultado ?>">
+                    <input type="hidden" name="CorreoMed" class="buscarID-mascota" value="<?php echo $_SESSION['Correo']; ?>">
                 </div>
                 <input type="submit" name="AgregarPropMasc" class="RegistroProp" value="Registrar">
             </form>
@@ -143,6 +146,7 @@ if ($_SESSION['Correo']) {
                         <img class="volver01" src="../Img/Iconos/volver.png">
                         <p id="FromMascota">Consultar Propietario</p>
                         <input type="text" name="Documento" id="" placeholder="Buscar por ID" class="buscarID-mascota" required>
+                        <input type="hidden" name="Correo" class="buscarID-mascota" value="<?php echo $_SESSION['Correo']; ?>">
                         <input type="submit" name="BuscarProp" id="" value="Consultar" class="consultarID-mascota">
                 </form>
                 <?php
@@ -167,7 +171,8 @@ if ($_SESSION['Correo']) {
                     <input id="name" name="Color" type="text" class="form-input" placeholder="Color">
                     <input id="name" name="Observaciones" type="text" class="form-input" placeholder="Observaciones">
                     <input type="hidden" name="Documento" class="buscarID-mascota" value="<?php echo $_GET['Documento'] ?>">
-                    <input type="hidden" name="DocumentoMed" class="buscarID-mascota" value="<?php echo BuscarMedico($_SESSION['Correo']); ?>">
+                    <input type="hidden" name="DocumentoMed" class="buscarID-mascota" value="<?php echo $resultado ?>">
+                    <input type="hidden" name="CorreoMed" class="buscarID-mascota" value="<?php echo $_SESSION['Correo']; ?>">
             </div>
                 <input type="submit" name="AgregarMascota" class="RegistroProp02" value="Registrar">
                 </form>

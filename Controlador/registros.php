@@ -24,7 +24,8 @@
                                             $_POST['Correo'],
                                             $_POST['Celular'],
                                             $_POST['Telefono'],
-                                            2
+                                            2,
+                                            ''
                                         );
             $Obj_Usuario->ValidarRegistro(
                                             $_POST['Documento'],
@@ -49,7 +50,8 @@
                                             $_POST['Correo'],
                                             $_POST['Celular'],
                                             $_POST['Telefono'],
-                                            1
+                                            1,
+                                            ''
                                         );
             $Obj_Usuario->ValidarRegistro(
                                             $_POST['Documento'],
@@ -70,7 +72,8 @@
                                             $_POST['Correo'],
                                             $_POST['Celular'],
                                             $_POST['Telefono'],
-                                            3
+                                            3,
+                                            $_POST['CorreoMed']
                                         );
                                         
             $Obj_Mascota->AgregarEspecie($_POST['Especie']);

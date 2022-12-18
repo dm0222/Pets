@@ -3,7 +3,7 @@
         
     class Persona
     {
-            public function AgregarPersona($Documento,$PrimerNombre,$SegundoNombre,$PrimerApellido,$SegundoApellido,$Direccion,$Email,$Celular,$Telefono,$Tipo){
+            public function AgregarPersona($Documento,$PrimerNombre,$SegundoNombre,$PrimerApellido,$SegundoApellido,$Direccion,$Email,$Celular,$Telefono,$Tipo,$CorreoMed){
             $Obj_Conexion = new Conexion;
             $Conexion= $Obj_Conexion->conexion();
             switch($Tipo){
@@ -31,6 +31,7 @@
                     }
                 break;
                 case 3: //Propietario
+                    $_SESSION['Correo'] = $CorreoMed;
                     $queyvalidar = "SELECT * FROM propietario WHERE Documento = '$Documento'";
                     $validar = mysqli_query($Conexion, $queyvalidar);
                     if (mysqli_fetch_array($validar)){
@@ -42,7 +43,7 @@
                                     text:'El cliente ya se encuentra registrado'
                                 }).then((result) => {
                                     if(result.isConfirmed){
-                                        window.location = '../Vista/Medico/DeskMedico.php';
+                                        window.location = '../Vista/Medico/DeskMedico.php?Correo=".$_SESSION['Correo']."';
                                     }
                                 });   
                             </script>
@@ -59,7 +60,7 @@
                                     text:'El cliente a sido registrado correctamente'
                                 }).then((result) => {
                                     if(result.isConfirmed){
-                                        window.location = '../Vista/Medico/DeskMedico.php';
+                                        window.location = '../Vista/Medico/DeskMedico.php?Correo=".$_SESSION['Correo']."';
                                     }
                                 });   
                             </script>
@@ -69,7 +70,7 @@
             }
         }
 
-            public function BuscarPropietario($Documento){
+            public function BuscarPropietario($Documento,$Correo){
                 $Obj_Conexion = new Conexion;
                 $Conexion= $Obj_Conexion->conexion();
                 $queybuscar = "SELECT * FROM propietario WHERE Documento = '$Documento'";
@@ -83,12 +84,12 @@
                             text:'Propietario encontrado'
                         }).then((result) => {
                             if(result.isConfirmed){
-                                window.location = '../Medico/DeskMedico.php?Documento=".$Documento."';
+                                window.location = '../Medico/DeskMedico.php?Documento=".$Documento."&Correo=".$Correo."';
                             }
-                        });   
+                        });     
                     </script>
                     ";
-                    //header('Location: ../Medico/DeskMedico.php?Documento='.$Documento.''); 
+                    
                 }
                 else{
                     echo "

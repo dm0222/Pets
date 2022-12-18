@@ -15,7 +15,7 @@
 
     function BuscarMedico($Correo){
         $Conexion = new Conexion;
-        $query = "SELECT * FROM medico WHERE email = '$Correo'";
+        $query = "SELECT Documento FROM medico WHERE email = '$Correo'";
         $resultado = mysqli_query($Conexion->conexion(),$query);
         $row = mysqli_fetch_row($resultado);
         $Doc_Medico = $row[0];
@@ -34,7 +34,6 @@
         $Especie = $_POST['Nom_Especie'];
         $Conexion = new Conexion;
             $especie = "SELECT Codigo FROM especie WHERE nombre_especie = '$Especie'";
-            echo $especie;
             $resultado = mysqli_query($Conexion->conexion(), $especie);
             $row = mysqli_fetch_row($resultado);
             $Cod_Especie = $row[0];
@@ -51,6 +50,7 @@
 }
 
     function ListarHistClic(){
+        $listaHistClic = array();
         $Conexion = new Conexion;
             $Conectar = $Conexion->conexion();
             $query = "SELECT hc.Codigo, p.PrimerNombre, p.PrimerApellido, m.Nombre FROM historia_clinica hc,mascota m, propietario p WHERE hc.FK_CodMascota = m.Codigo AND p.Documento = m.FK_CodPropietario";

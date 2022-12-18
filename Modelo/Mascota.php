@@ -36,7 +36,7 @@
                         text:'La Mascota a sido registrada con Exito'
                     }).then((result) => {
                         if(result.isConfirmed){
-                            window.location = '../Vista/Medico/DeskMedico.php';
+                            window.location = '../Vista/Medico/DeskMedico.php?Correo=".$_SESSION['Correo']."';
                         }
                     });   
                 </script>
